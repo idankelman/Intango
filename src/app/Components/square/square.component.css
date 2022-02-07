@@ -8,6 +8,11 @@
     display: flex;
 
 }
+
+.Container *{
+    transition: all ease 0.3s;
+}
+
 .Square{
     justify-content: center;
     align-items: center;
@@ -38,5 +43,12 @@
     height: 10%;
     background-color: aliceblue;
     font-size: 18px;
+
+}
+
+.Square .Info:hover{
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.3);
+    /* transform: scale(2); */
 
 }
