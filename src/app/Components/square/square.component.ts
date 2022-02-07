@@ -7,7 +7,6 @@
 import { Component, OnInit ,Input,Output} from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Square } from 'src/app/Interfaces/Square';
-import { NgForm } from '@angular/forms';
 
 
 
@@ -63,19 +62,26 @@ export class SquareComponent implements OnInit {
   //================================================================
 
   onClick(){
+
+    //[1] Update Votes
     console.log("Square Clicked");
     this.btnClick.emit();
     this.Square_.votes+=1
+
+    //[2] Update MaxVotes 
+
+
+    //[3] Update Server
+
+
+    //[4] Update Bar Width 
     this.BarWidth = this.CalcBar(this.Square_.votes) 
     console.log(this.BarWidth)
+
   }
 
   CalcBar(Votes:number){
     return  Math.floor(this.SquareWidth*(Votes/this.MaxWidth));
-  }
-
-  onChange(){
-
   }
 
 
