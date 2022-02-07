@@ -1,0 +1,42 @@
+.Container{
+
+    width: 250px;
+    height: 250px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.Square{
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+}
+
+.Square * {
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+}
+
+.Info{
+    display: flex;
+    width: 100%;
+    height: 90%;    
+    border:none;
+    background-color: aqua;
+    font-size: 50px;
+}
+
+.Bar{
+    position: relative;
+    display:flex;
+    width: 120px;
+    height: 10%;
+    background-color: aliceblue;
+    font-size: 18px;
+
+}
