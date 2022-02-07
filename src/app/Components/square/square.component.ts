@@ -34,12 +34,14 @@ export class SquareComponent implements OnInit {
 
 
   @Input() Square_:Square 
+  @Input()  MaxVote:number = 200;
+  @Output()  VoteChange: EventEmitter<number> =   new EventEmitter();
   @Output() btnClick= new EventEmitter();
 
   SquareWidth:number = 200;
   BarWidth:number = 50;
   // BarWidth;
-  MaxWidth:number = 200;
+
 
 
   constructor() {
@@ -52,7 +54,8 @@ export class SquareComponent implements OnInit {
       color:"#fff",
       votes: 0
     };
-    // this.BarWidth= this.CalcBar(this.Square_.votes)
+
+    this.BarWidth= this.CalcBar(this.Square_.votes)
 
    }
 
@@ -65,8 +68,9 @@ export class SquareComponent implements OnInit {
 
     //[1] Update Votes
     console.log("Square Clicked");
-    this.btnClick.emit();
+    this.btnClick.emit(this.Square_.votes);
     this.Square_.votes+=1
+    this.VoteChange.emit(this.Square_.votes);
 
     //[2] Update MaxVotes 
 
@@ -81,7 +85,10 @@ export class SquareComponent implements OnInit {
   }
 
   CalcBar(Votes:number){
-    return  Math.floor(this.SquareWidth*(Votes/this.MaxWidth));
+    if(this.MaxVote<Votes)
+      this.MaxVote= Votes
+    console.log(this.MaxVote + "  -- " + Votes)
+    return (this.MaxVote==0? 0 : Math.floor(this.SquareWidth*(Votes/this.MaxVote)));
   }
 
 

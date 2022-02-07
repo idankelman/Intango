@@ -1,6 +1,6 @@
 <div class = "Container">
     <div class = "Square" [(ngModel)]="BarWidth" ngDefaultControl >
         <Button class = "Info" (click) = "onClick()" [ngStyle]="{'background-color':Square_.color}" >  {{Square_.votes}}  </Button>
-        <div class = "Bar"  [style.width.px] = "BarWidth" > {{BarWidth}}</div>
+        <div class = "Bar"  [style.width.px] = "BarWidth" > {{Square_.votes}}</div>
     </div>
 </div>

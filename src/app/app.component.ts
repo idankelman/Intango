@@ -9,13 +9,22 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
-  // Vote:number = 1;
 
-  title = 'Client';
+  Max_:number = 0;
+  titles:string = 'Client';
   
   UpVote(){
-    console.log("Vote up")
+    console.log("Vote up ")
     // this.Vote++;
+  }
+
+  UpdateMax(vote:number){
+    if(vote>this.Max_)
+      this.Max_=vote;
+
+    console.log('Updating max : '+ this.Max_)
+
+
   }
 
 }
