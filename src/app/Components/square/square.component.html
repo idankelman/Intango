@@ -1,6 +1,6 @@
 <div class = "Container">
-    <div class = "Square">
-        <Button class = "Info" (click) = "BtnClick()">999</Button>
-        <div class = "Bar" >percentage</div>
+    <div class = "Square" [(ngModel)]="BarWidth" ngDefaultControl >
+        <Button class = "Info" (click) = "onClick()" [ngStyle]="{'background-color':Square_.color}" >  {{Square_.votes}}  </Button>
+        <div class = "Bar"  [style.width.px] = "BarWidth" > {{BarWidth}}</div>
     </div>
 </div>
