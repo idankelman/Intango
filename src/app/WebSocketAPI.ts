@@ -47,7 +47,8 @@ export class WebSocketAPI {
     _send(message:any) {
         console.log("calling logout api via web socket");
         console.log("sending test message to server : "+JSON.stringify(message));
-        this.stompClient.send("/app/hello", {}, JSON.stringify(message));
+        // this.stompClient.send("/app/hello", {}, JSON.stringify(message));
+        this.stompClient.send("/app/hello", {}, message);
     }
     onMessageReceived(message:any) {
         console.log("Message Recieved from Server :: " + message);
