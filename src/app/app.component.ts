@@ -37,6 +37,7 @@ export class AppComponent {
   }
 
   connect(){
+    console.log("connecting...")
     console.log("Connecting to WebSocket")
     console.log(this.webSocketAPI)
     this.webSocketAPI._connect();
