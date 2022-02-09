@@ -36,7 +36,7 @@ export class SquareComponent implements OnInit {
   @Input() Square_:Square 
   @Input()  MaxVote:number = 200;
   @Output()  VoteChange: EventEmitter<number> =   new EventEmitter();
-  @Output() btnClick= new EventEmitter();
+  @Output() btnClick: EventEmitter<number> = new EventEmitter();
 
   SquareWidth:number = 200;
   BarWidth:number = 50;
@@ -70,13 +70,14 @@ export class SquareComponent implements OnInit {
     console.log("Square Clicked");
     this.btnClick.emit(this.Square_.votes);
     this.Square_.votes+=1
-    this.VoteChange.emit(this.Square_.votes);
 
     //[2] Update MaxVotes 
 
+    this.VoteChange.emit(this.Square_.votes);
 
     //[3] Update Server
 
+    // this.btnClick.emit(this.Square_.id);
 
     //[4] Update Bar Width 
     this.BarWidth = this.CalcBar(this.Square_.votes) 
