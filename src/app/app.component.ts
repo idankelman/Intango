@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WebSocketAPI } from './WebSocketAPI';
 
 
 @Component({
@@ -12,6 +13,18 @@ export class AppComponent {
 
   Max_:number = 0;
   titles:string = 'Client';
+  webSocketAPI:WebSocketAPI;
+  name: string ='';
+  greeting:any;
+
+  ngOnInit() {
+    this.webSocketAPI = new WebSocketAPI(new AppComponent());
+  }
+
+  constructor(){
+    // this.webSocketAPI = new WebSocketAPI(new AppComponent());
+    
+  }
   
   UpVote(){
     console.log("Vote up ")
@@ -23,8 +36,24 @@ export class AppComponent {
       this.Max_=vote;
 
     console.log('Updating max : '+ this.Max_)
-
-
   }
 
+  connect(){
+    console.log("Connecting to WebSocket")
+    console.log(this.webSocketAPI)
+    this.webSocketAPI._connect();
+  }
+
+  disconnect(){
+    this.webSocketAPI._disconnect();
+  }
+
+  sendMessage(){
+    this.webSocketAPI._send(this.name);
+  }
+
+  handleMessage(message:any){
+    console.log("Message Recieved from Server :: " + message);
+    this.greeting = message;
+  }
 }
