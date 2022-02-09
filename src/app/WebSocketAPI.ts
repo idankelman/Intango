@@ -11,7 +11,7 @@ export class WebSocketAPI {
     constructor(appComponent: AppComponent){
         this.appComponent = appComponent;
     }
-    
+
     _connect() {
         console.log("Initialize WebSocket Connection");
         let ws = new SockJS(this.webSocketEndPoint);
@@ -46,6 +46,7 @@ export class WebSocketAPI {
   */
     _send(message:any) {
         console.log("calling logout api via web socket");
+        console.log("sending test message to server : "+JSON.stringify(message));
         this.stompClient.send("/app/hello", {}, JSON.stringify(message));
     }
     onMessageReceived(message:any) {
