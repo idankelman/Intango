@@ -49,21 +49,28 @@ export class AppComponent {
   }
 
   handleMessage(message: any) {
+
+    //[0] 
+    //erasing the data that was previously created 
+
     this.Squares = [];
     let newM = JSON.parse(message);
     console.log(newM);
+
+    //[1]
+    //Creating a new square , and pushing it to the array
     for (let i = 0; i < newM.length; i++) {
       let square: Square = {
         id: newM[i].id,
         color: newM[i].color,
         votes: newM[i].vote,
       };
+
       this.UpdateMax(square.votes);
       this.Squares.push(square);
     }
 
-    // this.Squares = message;
     console.log(this.Squares);
-    console.log(this.Squares[0]);
+    // console.log(this.Squares[0]);
   }
 }
