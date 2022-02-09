@@ -12,9 +12,8 @@ import { WebSocketAPI } from './WebSocketAPI';
 export class AppComponent {
 
   Max_:number = 0;
-  titles:string = 'Client';
   webSocketAPI:WebSocketAPI;
-  name: string ='';
+  name: string ='idan';
   greeting:any;
 
   ngOnInit() {
@@ -23,7 +22,6 @@ export class AppComponent {
 
   constructor(){
     // this.webSocketAPI = new WebSocketAPI(new AppComponent());
-    
   }
   
   UpVote(){
@@ -49,11 +47,10 @@ export class AppComponent {
   }
 
   sendMessage(){
-    this.webSocketAPI._send(this.name);
+    this.webSocketAPI._send(this.Max_);
   }
 
   handleMessage(message:any){
-    console.log("Message Recieved from Server :: " + message);
     this.greeting = message;
   }
 }
