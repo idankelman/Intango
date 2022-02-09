@@ -36,7 +36,7 @@ export class AppComponent {
 
     //setting the observable on the squares array
     this.SquareService.getSquares().subscribe({
-       next: (data)=>console.log(data),
+       next: (data)=>{console.log(data);this.Squares = data;},
       error: (error) =>console.log(error),
       complete:()=>console.log('complete')      
     });
@@ -82,7 +82,7 @@ export class AppComponent {
     //[0]
     //erasing the data that was previously created
 
-    this.Squares = [];
+    let Squares_ = [];
     let newM = JSON.parse(message);
     console.log(newM);
 
@@ -96,10 +96,11 @@ export class AppComponent {
       };
 
       this.UpdateMax(square.votes);
-      this.Squares.push(square);
+      Squares_.push(square);
     }
 
-    console.log(this.Squares);
+    console.log(Squares_);
+    this.SquareService.updateService();
     // console.log(this.Squares[0]);
   }
 
