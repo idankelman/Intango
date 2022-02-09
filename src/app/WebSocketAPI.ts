@@ -52,6 +52,6 @@ export class WebSocketAPI {
     }
     onMessageReceived(message:any) {
         console.log("Message Recieved from Server :: " + message);
-        this.appComponent.handleMessage(JSON.stringify(message.body));
+        this.appComponent.handleMessage(message.body);
     }
 }
