@@ -1,6 +1,13 @@
+//================================================================
+//                        Imports 
+//================================================================
+
+
+
 import { Component } from '@angular/core';
 import { WebSocketAPI } from './WebSocketAPI';
 import { Square } from './Interfaces/Square';
+import { RequesterService } from './Services/requester.service';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +15,36 @@ import { Square } from './Interfaces/Square';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+//================================================================
+//                  variables
+//================================================================
+
   Max_: number = 0;
   webSocketAPI: WebSocketAPI;
+  SquareService: RequesterService;
   name: string = 'idan';
   Squares: Square[] = [];
 
-  ngOnInit() {
+  constructor(){}
+
+  ngOnInit():void {
+
+    //setting up the socket connection
     this.webSocketAPI = new WebSocketAPI(new AppComponent());
+    this.SquareService = new RequesterService();
+
+    //setting the observable on the squares array
+    this.SquareService.getSquares().subscribe({
+       next: (data)=>console.log(data),
+      error: (error) =>console.log(error),
+      complete:()=>console.log('complete')      
+    });
   }
 
-  constructor() {
-    // this.webSocketAPI = new WebSocketAPI(new AppComponent());
-  }
+  //================================================================
+  //                  WebSocket handler functions 
+  //================================================================
 
   UpVote(id: number) {
     console.log('Vote up for : ' + id);
@@ -48,10 +73,14 @@ export class AppComponent {
     this.webSocketAPI._send(id);
   }
 
-  handleMessage(message: any) {
+  //================================================================
+  //                unserialize the incomming data
+  //================================================================
 
-    //[0] 
-    //erasing the data that was previously created 
+
+  handleMessage(message: any) {
+    //[0]
+    //erasing the data that was previously created
 
     this.Squares = [];
     let newM = JSON.parse(message);
@@ -73,4 +102,7 @@ export class AppComponent {
     console.log(this.Squares);
     // console.log(this.Squares[0]);
   }
+
+
+
 }
