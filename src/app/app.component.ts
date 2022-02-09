@@ -24,8 +24,8 @@ export class AppComponent {
     // this.webSocketAPI = new WebSocketAPI(new AppComponent());
   }
   
-  UpVote(){
-    console.log("Vote up ")
+  UpVote(id:number){
+    console.log("Vote up for : " + id);
     // this.Vote++;
   }
 

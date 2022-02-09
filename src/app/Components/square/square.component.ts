@@ -68,7 +68,7 @@ export class SquareComponent implements OnInit {
 
     //[1] Update Votes
     console.log("Square Clicked");
-    this.btnClick.emit(this.Square_.votes);
+    // this.btnClick.emit(this.Square_.votes);
     this.Square_.votes+=1
 
     //[2] Update MaxVotes 
@@ -77,7 +77,7 @@ export class SquareComponent implements OnInit {
 
     //[3] Update Server
 
-    // this.btnClick.emit(this.Square_.id);
+    this.btnClick.emit(this.Square_.id);
 
     //[4] Update Bar Width 
     this.BarWidth = this.CalcBar(this.Square_.votes) 
