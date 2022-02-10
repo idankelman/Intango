@@ -33,7 +33,11 @@ export class SquareComponent implements OnInit {
   //================================================================
 
 
-  @Input() Square_:Square 
+  @Input() Square_:Square = {
+    id : -1,
+    color:"#fff",
+    votes: 0
+  };
   @Input()  MaxVote:number = 200;
   @Output()  VoteChange: EventEmitter<number> =   new EventEmitter();
   @Output() btnClick: EventEmitter<number> = new EventEmitter();
@@ -45,18 +49,8 @@ export class SquareComponent implements OnInit {
 
 
   constructor() {
-
-
-
     //=====================    init variables   =====================
-    this.Square_ = {
-      id : -1,
-      color:"#fff",
-      votes: 0
-    };
-
-    this.BarWidth= this.CalcBar(this.Square_.votes)
-
+  
    }
 
 
@@ -94,6 +88,7 @@ export class SquareComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.BarWidth= this.CalcBar(this.Square_.votes)
   }
 
 }
