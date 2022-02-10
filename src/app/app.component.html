@@ -1,18 +1,11 @@
-<button (click)="connect()">Connect</button>
+<!-- <button (click)="connect()">Connect</button>
 <button (click)="disconnect()">disconnect</button>
-<button (click)="sendMessage()">SendMessage</button>
+<button (click)="sendMessage(Max_)">SendMessage</button> -->
 
-<div class = "Grid-Container">
-  <div class = "Grid" [ngModel]="Max_" ngDefaultControl>
+<app-title header="idan kelman : 10/2/2022 : intango" text = "Please Select Your Favorite Color : "></app-title>
 
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-    <app-square (btnClick)= "UpVote()"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_ > </app-square>
-
-    
+<div class = "Grid-Container" [(ngModel)] = "Squares" ngDefaultControl>
+  <div class = "Grid" [(ngModel)]="Max_" ngDefaultControl>
+    <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>    
   </div>
 </div>

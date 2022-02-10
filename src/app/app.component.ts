@@ -1,56 +1,97 @@
+//================================================================
+//                        Imports
+//================================================================
+
 import { Component } from '@angular/core';
 import { WebSocketAPI } from './WebSocketAPI';
-
+import { Square } from './Interfaces/Square';
+import { RequesterService } from './Services/requester.service';
+import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-
-
 export class AppComponent {
+  //================================================================
+  //                  variables
+  //================================================================
 
-  Max_:number = 0;
-  webSocketAPI:WebSocketAPI;
-  name: string ='idan';
-  greeting:any;
+  Max_: number = 0;
+  webSocketAPI!: WebSocketAPI;
+  Squares: Square[] = [];
 
-  ngOnInit() {
-    this.webSocketAPI = new WebSocketAPI(new AppComponent());
+  constructor(private SquareService: RequesterService) {}
+
+  ngOnInit(): void {
+    //setting up the socket connection
+
+    this.webSocketAPI = new WebSocketAPI(this);
+    this.webSocketAPI._connect();
+    setTimeout(() => {
+      try {this.sendMessage(-1);} catch {console.log('Connection has not been established yet');}}, 3000);
   }
 
-  constructor(){
-    // this.webSocketAPI = new WebSocketAPI(new AppComponent());
-  }
-  
-  UpVote(){
-    console.log("Vote up ")
-    // this.Vote++;
-  }
+  //================================================================
+  //                  WebSocket handler functions
+  //================================================================
 
-  UpdateMax(vote:number){
-    if(vote>this.Max_)
-      this.Max_=vote;
-
-    console.log('Updating max : '+ this.Max_)
+  UpVote(id: number) {
+    console.log('Vote up for : ' + id);
+    try {
+      this.sendMessage(id);
+    } catch (e) {
+      console.log('Erorr communicating with the webSocket server');
+    }
   }
 
-  connect(){
-    console.log("Connecting to WebSocket")
-    console.log(this.webSocketAPI)
+  UpdateMax(vote: number) {
+    if (vote > this.Max_) this.Max_ = vote;
+
+   }
+
+  connect() {
+    console.log('connecting...');
     this.webSocketAPI._connect();
   }
 
-  disconnect(){
+  disconnect() {
     this.webSocketAPI._disconnect();
   }
 
-  sendMessage(){
-    this.webSocketAPI._send(this.Max_);
+  sendMessage(id: number) {
+    this.webSocketAPI._send(id);
   }
 
-  handleMessage(message:any){
-    this.greeting = message;
+  //================================================================
+  //                unserialize the incomming data
+  //================================================================
+
+  handleMessage(message: any) {
+    //[0]
+    //erasing the data that was previously created
+
+    let Squares_ = [];
+    this.Squares = [];
+    let newM = JSON.parse(message);
+
+    //[1]
+    //Creating a new square , and pushing it to the array
+    for (let i = 0; i < newM.length; i++) {
+      let square: Square = {
+        id: newM[i].id,
+        color: newM[i].color,
+        votes: newM[i].vote,
+      };
+
+      this.UpdateMax(square.votes);
+      Squares_.push(square);
+      this.Squares.push(square);
+    }
+
+    this.Squares = Squares_;
+    this.SquareService.updateService(Squares_);
+
   }
 }

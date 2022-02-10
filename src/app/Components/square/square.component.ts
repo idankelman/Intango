@@ -33,7 +33,11 @@ export class SquareComponent implements OnInit {
   //================================================================
 
 
-  @Input() Square_:Square 
+  @Input() Square_:Square = {
+    id : -1,
+    color:"#fff",
+    votes: 0
+  };
   @Input()  MaxVote:number = 200;
   @Output()  VoteChange: EventEmitter<number> =   new EventEmitter();
   @Output() btnClick: EventEmitter<number> = new EventEmitter();
@@ -45,18 +49,8 @@ export class SquareComponent implements OnInit {
 
 
   constructor() {
-
-
-
     //=====================    init variables   =====================
-    this.Square_ = {
-      id : -1,
-      color:"#fff",
-      votes: 0
-    };
-
-    this.BarWidth= this.CalcBar(this.Square_.votes)
-
+  
    }
 
 
@@ -68,32 +62,33 @@ export class SquareComponent implements OnInit {
 
     //[1] Update Votes
     console.log("Square Clicked");
-    this.btnClick.emit(this.Square_.votes);
-    this.Square_.votes+=1
+    // this.btnClick.emit(this.Square_.votes);
+    // this.Square_.votes+=1
 
     //[2] Update MaxVotes 
 
-    this.VoteChange.emit(this.Square_.votes);
+    this.VoteChange.emit(this.Square_.votes+1);
 
     //[3] Update Server
 
-    // this.btnClick.emit(this.Square_.id);
+    this.btnClick.emit(this.Square_.id);
 
     //[4] Update Bar Width 
-    this.BarWidth = this.CalcBar(this.Square_.votes) 
-    console.log(this.BarWidth)
+    //this.BarWidth = this.CalcBar(this.Square_.votes) 
+
 
   }
 
   CalcBar(Votes:number){
     if(this.MaxVote<Votes)
       this.MaxVote= Votes
-    console.log(this.MaxVote + "  -- " + Votes)
+    // console.log(this.MaxVote + "  -- " + Votes)
     return (this.MaxVote==0? 0 : Math.floor(this.SquareWidth*(Votes/this.MaxVote)));
   }
 
 
   ngOnInit(): void {
+    this.BarWidth= this.CalcBar(this.Square_.votes)
   }
 
 }
