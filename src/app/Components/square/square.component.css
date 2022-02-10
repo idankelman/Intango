@@ -2,10 +2,13 @@
 
     width: 250px;
     height: 250px;
-    background-color: black;
+    background-color: white;
+    border-radius: 50px;
     justify-content: center;
     align-items: center;
     display: flex;
+      box-shadow: -10px -10px 40px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
 
 }
 
@@ -18,7 +21,11 @@
     align-items: center;
     width: 200px;
     height: 200px;
-    background-color: aquamarine;
+    /* border-radius: 40px; */
+    /* background-color: aquamarine; */
+    /* display: flex; */
+    
+    
 }
 
 .Square * {
@@ -34,6 +41,8 @@
     border:none;
     background-color: aqua;
     font-size: 50px;
+    border-radius: 10px;
+    
 }
 
 .Bar{
@@ -43,6 +52,7 @@
     height: 10%;
     background-color: aliceblue;
     font-size: 18px;
+    /* border-radius: 40x; */
 
 }
 

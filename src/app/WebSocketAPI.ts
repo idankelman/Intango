@@ -19,7 +19,9 @@ export class WebSocketAPI {
         const _this = this;
         _this.stompClient.connect({}, function (frame:any) {
             _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {
+                console.log(sdkEvent.body);
                 _this.onMessageReceived(sdkEvent);
+                // _this._send(-1);
             });
             //_this.stompClient.reconnect_delay = 2000;
         }, this.errorCallBack);
