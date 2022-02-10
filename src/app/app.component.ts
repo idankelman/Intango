@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { WebSocketAPI } from './WebSocketAPI';
 import { Square } from './Interfaces/Square';
 import { RequesterService } from './Services/requester.service';
+import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -19,34 +20,17 @@ export class AppComponent {
 
   Max_: number = 0;
   webSocketAPI!: WebSocketAPI;
-  // SquareService!: RequesterService;
-  title: string = 'idan';
   Squares: Square[] = [];
 
-  constructor(private SquareService:RequesterService) {}
+  constructor(private SquareService: RequesterService) {}
 
   ngOnInit(): void {
     //setting up the socket connection
+
     this.webSocketAPI = new WebSocketAPI(this);
     this.webSocketAPI._connect();
-
-    // this.SquareService = new RequesterService();
-    
-    //setting the observable on the squares array
-    // this.SquareService.getSquares().subscribe({
-    //   next: (data) => {
-        
-    //     console.log(data);
-    //     // this.Squares = data;
-
-    //   },
-    //   error: (error) => console.log(error),
-    //   complete: () => {console.log('The squares are ready');console.log(this.Squares);},
-    // });
-
-
-    // this.sendMessage(-1);
-
+    setTimeout(() => {
+      try {this.sendMessage(-1);} catch {console.log('Connection has not been established yet');}}, 3000);
   }
 
   //================================================================
@@ -65,13 +49,10 @@ export class AppComponent {
   UpdateMax(vote: number) {
     if (vote > this.Max_) this.Max_ = vote;
 
-    console.log('Updating max : ' + this.Max_);
-  }
+   }
 
   connect() {
     console.log('connecting...');
-    console.log('Connecting to WebSocket');
-    console.log(this.webSocketAPI);
     this.webSocketAPI._connect();
   }
 
@@ -92,9 +73,8 @@ export class AppComponent {
     //erasing the data that was previously created
 
     let Squares_ = [];
-    this.Squares= [];
+    this.Squares = [];
     let newM = JSON.parse(message);
-    console.log(newM);
 
     //[1]
     //Creating a new square , and pushing it to the array
@@ -110,15 +90,8 @@ export class AppComponent {
       this.Squares.push(square);
     }
 
-    // console.log(Squares_);
-    console.log(Squares_);
     this.Squares = Squares_;
-    
     this.SquareService.updateService(Squares_);
-    // this.SquareService.Squares = Squares_;
-    console.log('these are the squares after message: ');
-    console.log(this.Squares);
-    this.title = JSON.stringify(this.Squares);
-    // console.log(this.Squares[0]);
+
   }
 }

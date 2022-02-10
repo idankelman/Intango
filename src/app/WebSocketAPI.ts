@@ -19,7 +19,7 @@ export class WebSocketAPI {
         const _this = this;
         _this.stompClient.connect({}, function (frame:any) {
             _this.stompClient.subscribe(_this.topic, function (sdkEvent:any) {
-                console.log(sdkEvent.body);
+                //console.log(sdkEvent.body);
                 _this.onMessageReceived(sdkEvent);
                 // _this._send(-1);
             });
@@ -47,13 +47,13 @@ export class WebSocketAPI {
   * @param {*} message 
   */
     _send(message:any) {
-        console.log("calling logout api via web socket");
-        console.log("sending test message to server : "+JSON.stringify(message));
+        // console.log("calling logout api via web socket");
+        // console.log("sending test message to server : "+JSON.stringify(message));
         // this.stompClient.send("/app/hello", {}, JSON.stringify(message));
         this.stompClient.send("/app/hello", {}, message);
     }
     onMessageReceived(message:any) {
-        console.log("Message Recieved from Server :: " + message);
+        // console.log("Message Recieved from Server :: " + message);
         this.appComponent.handleMessage(message.body);
     }
 }

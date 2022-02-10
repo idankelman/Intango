@@ -47,7 +47,6 @@ export class RequesterService {
 
   //================================================================
   updateService(Squares_: Square[]) {
-    // console.log("Squares inside of the observable : \n" + Squares_);
     if(Squares_ == undefined)
       return;
     this.Squares = Squares_;
