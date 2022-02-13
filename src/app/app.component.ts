@@ -5,8 +5,6 @@
 import { Component } from '@angular/core';
 import { WebSocketAPI } from './WebSocketAPI';
 import { Square } from './Interfaces/Square';
-import { RequesterService } from './Services/requester.service';
-import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,7 @@ export class AppComponent {
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
 
-  constructor(private SquareService: RequesterService) {}
+  constructor() {}
 
   ngOnInit(): void {
     //setting up the socket connection
@@ -91,7 +89,5 @@ export class AppComponent {
     }
 
     this.Squares = Squares_;
-    this.SquareService.updateService(Squares_);
-
   }
 }

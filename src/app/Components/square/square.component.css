@@ -10,6 +10,9 @@
       box-shadow: -10px -10px 40px rgba(255, 255, 255, 0.6),
     10px 10px 20px rgba(70, 70, 70, 0.4);
 
+    transition: all ease 0.3s;
+
+
 }
 
 .Container *{
@@ -20,12 +23,7 @@
     justify-content: center;
     align-items: center;
     width: 200px;
-    height: 200px;
-    /* border-radius: 40px; */
-    /* background-color: aquamarine; */
-    /* display: flex; */
-    
-    
+    height: 200px;    
 }
 
 .Square * {
@@ -56,9 +54,18 @@
 
 }
 
-.Square .Info:hover{
+.Info:hover {
     cursor: pointer;
-    background-color: rgba(0,0,0,0.3);
-    /* transform: scale(2); */
-
+    /* background-color: rgba(0,0,0,0.3); */
+    /* transform: scale(1.1); */
+    font-size: 70px;
+    transition: all ease 0.1s;
 }
+
+
+
+/* .Container:hover {
+   
+
+} */
+
