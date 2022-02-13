@@ -1,10 +1,10 @@
-#Client
+# Client
 
 
-##showing the result: a websocket connection that updates in real time and handles requests from multiple ports 
+##  showing the result: a websocket connection that updates in real time and handles requests from multiple ports 
 ![image](https://user-images.githubusercontent.com/80175752/153442924-dca4b0f9-ceb6-458e-b34c-550fe1a41f74.png)
 
-## e.g : <Port 4200 > < Port 4201 > 
+##  e.g : <Port 4200 > < Port 4201 > 
 ![image](https://user-images.githubusercontent.com/80175752/153443098-281f57c7-8327-456e-8aae-270b58ef6e6c.png)
 
 
