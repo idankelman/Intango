@@ -6,8 +6,8 @@
 
 import { Component, OnInit ,Input,Output} from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Square } from 'src/app/Interfaces/Square';
-
 
 
 
@@ -33,11 +33,7 @@ export class SquareComponent implements OnInit {
   //================================================================
 
 
-  @Input() Square_:Square = {
-    id : -1,
-    color:"#fff",
-    votes: 0
-  };
+  @Input() Square_:Square
   @Input()  MaxVote:number = 200;
   @Output()  VoteChange: EventEmitter<number> =   new EventEmitter();
   @Output() btnClick: EventEmitter<number> = new EventEmitter();
@@ -48,9 +44,13 @@ export class SquareComponent implements OnInit {
 
 
 
-  constructor() {
+  constructor(private route:ActivatedRoute) {
     //=====================    init variables   =====================
-  
+    this.Square_ = {
+      id : -1,
+      color:"#fff",
+      votes: 0
+    };
    }
 
 
@@ -88,6 +88,7 @@ export class SquareComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.paramMap.get('id'));
     this.BarWidth= this.CalcBar(this.Square_.votes)
   }
 
