@@ -9,6 +9,8 @@ import { TitleComponent } from './Components/title/title.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { AppRoutes } from './Interfaces/AppRoutes';
+import { FavoritesComponent } from './Pages/favorites/favorites.component';
+import { AdminComponent } from './Pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AppRoutes } from './Interfaces/AppRoutes';
     TitleComponent,
     NavbarComponent,
     HomeComponent,
+    FavoritesComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
