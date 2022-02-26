@@ -1,4 +1,5 @@
 <div class = "Container">
+    <a class= "nav" *ngIf="Square_.id!==-1" href="Square/{{Square_.id}}">go</a> 
     <div class = "Square" [(ngModel)]="BarWidth" ngDefaultControl >
         <Button class = "Info" (click) = "onClick()" [ngStyle]="{'background-color':Square_.color}" >  {{Square_.votes}}  </Button>
         <div class = "Bar"  [style.width.px] = "BarWidth" > {{Square_.votes}}</div>
