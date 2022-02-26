@@ -4,8 +4,9 @@
 
 <app-navbar></app-navbar>
 <app-title header="idan kelman : 10/2/2022 : intango" text = "Please Select Your Favorite Color : "></app-title>
-<div class = "Grid-Container" [(ngModel)] = "Squares" ngDefaultControl>
+<app-home></app-home>
+<!-- <div class = "Grid-Container" [(ngModel)] = "Squares" ngDefaultControl>
   <div class = "Grid" [(ngModel)]="Max_" ngDefaultControl>
     <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>    
   </div>
-</div>
+</div> -->
