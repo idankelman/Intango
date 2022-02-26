@@ -88,7 +88,9 @@ export class SquareComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('id'));
+    let check = this.route.snapshot.paramMap.get('id');
+    if(check!=null)
+      console.log('id : ' + check);
     this.BarWidth= this.CalcBar(this.Square_.votes)
   }
 
