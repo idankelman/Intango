@@ -1,15 +1,15 @@
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './Pages/home/home.component';
 
 export class WebSocketAPI {
     webSocketEndPoint: string = 'http://localhost:8080/ws';
     topic: string = "/topic/greetings";
     stompClient: any;
-    appComponent: AppComponent;
+    HomeComponent: HomeComponent;
 
-    constructor(appComponent: AppComponent){
-        this.appComponent = appComponent;
+    constructor(HomeComponent: HomeComponent){
+        this.HomeComponent = HomeComponent;
     }
 
     _connect() {
@@ -48,6 +48,6 @@ export class WebSocketAPI {
         this.stompClient.send("/app/hello", {}, message);
     }
     onMessageReceived(message:any) {
-        this.appComponent.handleMessage(message.body);
+        this.HomeComponent.handleMessage(message.body);
     }
 }
