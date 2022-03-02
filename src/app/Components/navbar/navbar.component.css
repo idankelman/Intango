@@ -33,9 +33,24 @@
     box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.5),
                  7px 7px 10px  rgba(70, 70, 70, 0.5);
 
-    border-radius: 50%;
+    border-radius: 10%;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.8s;
+
 
 }
+
+.Container .navBar .logo img
+{
+    width: 80%;
+    height: 80%;
+    filter: grayscale(100%);
+    transition: all ease 0.4s;
+
+
+}
+
 
 .Container .InputBox{
     display: flex;
@@ -93,7 +108,16 @@ a{color: black;}
 .Container .navBar .logo:hover{
     color: #f5f5f5;
     background-color: black;
+    transition: all ease 0.8s;
 }
+.Container .navBar .logo:hover>img{
+    filter: grayscale(0%);
+    filter: invert(100%);
+    transition: all ease 0.4s;
+
+}
+
+
 
 .Container .InputBox input:focus{
     outline: none;
