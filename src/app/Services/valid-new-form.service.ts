@@ -9,7 +9,7 @@ export class ValidNewFormService {
   //                  variables
   //================================================================
 
-  currentSquare!: Square; 
+  newSq: Square[]= []; 
 
   constructor() { }
 
@@ -19,13 +19,17 @@ export class ValidNewFormService {
   //                  Functions
   //================================================================
 
- Validate(vote:number ,color:string){
-  this.currentSquare.color=color;
-  this.currentSquare.votes=vote;
-  this.currentSquare.id=Math.floor(Math.random()*1000);
+ Validate(vote:number ,Color:string){
+  let newSquare:Square ={
+    id: Math.floor(Math.random()*1000),
+    color:Color,
+    votes:vote
+  }
+  this.newSq.push(newSquare);
+    
  }
 
  Authenticate(){
-  return !!this.currentSquare;
+  return !!this.newSq;
  }
 }
