@@ -5,7 +5,3 @@
       <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>    
     </div>
   </div>
-
-<div class = newContainer>
-<a [routerLink]="['/newSquare']" class = "new">hello</a>
-</div>
