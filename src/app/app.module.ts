@@ -1,8 +1,16 @@
+//------------------------------------------------------------------------------
+//                          Module Definition
+//------------------------------------------------------------------------------
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 // import {CommonModule} from '@angular/common';
+
+//------------------------------------------------------------------------------
+//                          Components
+//------------------------------------------------------------------------------
 
 import { AppComponent } from './app.component';
 import { SquareComponent } from './Components/square/square.component';
@@ -14,6 +22,12 @@ import { FavoritesComponent } from './Pages/favorites/favorites.component';
 import { AdminComponent } from './Pages/admin/admin.component';
 import { CommonModule } from '@angular/common';
 import { FormNewComponent } from './Components/form-new/form-new.component';
+
+//--------------------------------------------------------------------------------
+//Services
+//--------------------------------------------------------------------------------
+
+import { ValidNewFormService } from './Services/valid-new-form.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +46,9 @@ import { FormNewComponent } from './Components/form-new/form-new.component';
     CommonModule,
     RouterModule.forRoot(AppRoutes),
   ],
-  providers: [],
+  providers: [
+    ValidNewFormService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
