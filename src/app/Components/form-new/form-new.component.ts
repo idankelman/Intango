@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit ,Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { Square } from 'src/app/Interfaces/Square';
+import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
 
 @Component({
   selector: 'app-form-new',
@@ -13,9 +14,8 @@ export class FormNewComponent implements OnInit {
   name: string = '';
   Color: string = '';
   Votes: number = 0;
-  @Output() formSubmit: EventEmitter<number> = new EventEmitter();
 
-  constructor(private router:Router) {
+  constructor(private router:Router , private Auth:ValidNewFormService) {
     this.square = {
       id: -1,
       color: '#fff',
@@ -49,7 +49,8 @@ export class FormNewComponent implements OnInit {
 
   onSubmit(form: any) {
     console.log(form);
-    this.formSubmit.emit(form);
+    this.Auth.Validate(this.Votes,this.Color);
+
     this.router.navigate(['/Home']);
   }
 }
