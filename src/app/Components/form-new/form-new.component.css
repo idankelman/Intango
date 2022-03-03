@@ -39,15 +39,12 @@
     width: 100%;
     height: 50%;
     align-items: center;
-    /* border-radius: 20%; */
-    /* flex-direction: column; */
     justify-content:center ;
-    /* background-color: white; */
 }
 
 .Container .Form{
     display: flex;
-    width: 100%;
+    width: 500px;
     height: 100%;
     flex-direction: column;
     justify-content: center;
@@ -65,19 +62,25 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-right: 40px;
     /* background-color: wheat; */
 }
 
 
 .Container .Form .Form-Input button{
-   background-color: white;
+    display: flex;
+    background-color: white;
     border: none;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
     width: 100px;
     height: 50px;
     box-shadow: -10px -10px 40px rgba(255, 255, 255, 0.6),
     10px 10px 20px rgba(70, 70, 70, 0.4);
     transition: all ease 0.3s;
+    /* transform: translate(250px,0); */
+    /* left: 50%; */
 
 }
 
@@ -91,7 +94,7 @@
 
 .Container .Form input{
     display: flex;
-    width: 400px;
+    width: 300px;
     height: 35px;
     border: none;
     border-radius: 20px;
@@ -129,3 +132,14 @@
   transition: all ease 0.3s;
  }
  
+ .Container .Form .Form-Input em{
+    color: rgba(243, 158, 22, 0.808);
+    font-size: 20px;
+    font-family: monospace;
+    text-decoration: none;
+    font-style: normal;
+    padding-left: 20px;
+    position: absolute;
+    right:2px;
+    /* display: flex; */
+ }
