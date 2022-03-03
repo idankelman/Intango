@@ -2,11 +2,19 @@
     <div class = "Container">
         
         <div class = "Form-Info">
-            hello this is info about the form
+            valid : {{newForm.valid}}<br/>
+            <!-- invalid : {{newForm.invalid}}<br/> -->
+            <!-- dirty :{{newForm.dirty}}<br/> -->
+            <!-- touched: {{newForm.touched}}<br/> -->
+            <!-- pending: {{newForm.pending}}<br/> -->
+            <!-- pristine: {{newForm.pristine}}<br/> -->
+            color-status : {{newForm.controls["Color"]?.valid}}<br/>
+            Votes-status : {{newForm.controls["Votes"]?.valid}}<br/>
+
         </div>
 
         <div class = "FormContainer" >
-            <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm.value)">
+            <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm)">
                 <div class = "Form">
                     <div class = "Form-Input">
                         <label>Name</label>
@@ -14,14 +22,17 @@
                     </div>
                     <div class = "Form-Input">
                         <label>Color</label>
-                        <input type = "text" [(ngModel)] = "Color" name = "Color" (keyup)="ChangeColor()" >
+                        <input type = "text" [(ngModel)] = "Color" name = "Color" required (keyup)="ChangeColor()">
+                        <em *ngIf='newForm.controls["Color"]?.invalid'>required</em>
                     </div>
                     <div class = "Form-Input">
                         <label>Votes</label>
-                        <input type = "number" [(ngModel)] = "Votes" name = "Votes" (keyup)="ChangeVote()">
+                        <input type = "number" [(ngModel)] = "Votes" name = "Votes" (keyup)="ChangeVote()" (keydown)="ChangeVote()">
+                        <em *ngIf='Votes<=0'>required</em>
+                        
                     </div>
                     <div class = "Form-Input">
-                        <button type = "submit">Submit</button>
+                        <button type = "submit" [disabled] = "(newForm.invalid || Votes<=0)"  [ngStyle] = "(newForm.valid && Votes>0)? {'background-color':'#F5B154','color':'white'}:null">Submit</button>
                     </div>
                 </div>
             </form>
@@ -31,6 +42,5 @@
     <div class = SquareContainer>
         <app-square [(ngModel)] = "square" ngDefaultControl [Square_]= "square"></app-square>
     </div>
-
 
 </div>
