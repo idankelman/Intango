@@ -9,5 +9,6 @@ export const AppRoutes:Routes= [
     {path:"Favorites" , component: FavoritesComponent},
     {path:"Square/:id" , component: SquareComponent},
     {path:"Admin" , component: AdminComponent},
+    {path:"newSquare" , component: SquareComponent},
     {path:"**", redirectTo:"/Home" , pathMatch:"full"}
 ]
