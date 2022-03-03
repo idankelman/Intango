@@ -24,4 +24,8 @@ export class ValidNewFormService {
   this.currentSquare.votes=vote;
   this.currentSquare.id=Math.floor(Math.random()*1000);
  }
+
+ Authenticate(){
+  return !!this.currentSquare;
+ }
 }
