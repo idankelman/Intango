@@ -10,15 +10,15 @@
                 <div class = "Form">
                     <div class = "Form-Input">
                         <label>Name</label>
-                        <input type = "text" [(ngModel)] = "name" name = "name">
+                        <input type = "text" [(ngModel)] = "name" name = "name" (keyup)="ChangeName()">
                     </div>
                     <div class = "Form-Input">
-                        <label>Email</label>
-                        <input type = "text" [(ngModel)] = "email" name = "email">
+                        <label>Color</label>
+                        <input type = "text" [(ngModel)] = "Color" name = "Color" (keyup)="ChangeColor()" >
                     </div>
                     <div class = "Form-Input">
-                        <label>Message</label>
-                        <input type = "text" [(ngModel)] = "message" name = "message">
+                        <label>Votes</label>
+                        <input type = "number" [(ngModel)] = "Votes" name = "Votes" (keyup)="ChangeVote()">
                     </div>
                     <div class = "Form-Input">
                         <button type = "submit">Submit</button>
@@ -29,7 +29,7 @@
     </div>
 
     <div class = SquareContainer>
-        <app-square></app-square>
+        <app-square [(ngModel)] = "square" ngDefaultControl [Square_]= "square"></app-square>
     </div>
 
 
