@@ -13,6 +13,7 @@ import { AppRoutes } from './Interfaces/AppRoutes';
 import { FavoritesComponent } from './Pages/favorites/favorites.component';
 import { AdminComponent } from './Pages/admin/admin.component';
 import { CommonModule } from '@angular/common';
+import { FormNewComponent } from './Components/form-new/form-new.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     HomeComponent,
     FavoritesComponent,
     AdminComponent,
+    FormNewComponent,
   ],
   imports: [
     BrowserModule,
