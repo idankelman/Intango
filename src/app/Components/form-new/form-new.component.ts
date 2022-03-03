@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit ,Output} from '@angular/core';
-import { from } from 'rxjs';
+import { Router } from '@angular/router';
 import { Square } from 'src/app/Interfaces/Square';
 
 @Component({
@@ -15,7 +15,7 @@ export class FormNewComponent implements OnInit {
   Votes: number = 0;
   @Output() formSubmit: EventEmitter<number> = new EventEmitter();
 
-  constructor() {
+  constructor(private router:Router) {
     this.square = {
       id: -1,
       color: '#fff',
@@ -50,5 +50,6 @@ export class FormNewComponent implements OnInit {
   onSubmit(form: any) {
     console.log(form);
     this.formSubmit.emit(form);
+    this.router.navigate(['/Home']);
   }
 }
