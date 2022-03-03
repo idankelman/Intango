@@ -1,0 +1,100 @@
+.elem{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.Container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 400px;
+    background-color: white;
+    border-radius: 100px;
+    box-shadow: -10px -10px 120px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+}
+
+.Container *{
+    color:black;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+.Container .Form-Info{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    /* border-radius: 20%; */
+    /* flex-direction: column; */
+    justify-content:center ;
+    /* background-color: white; */
+}
+
+.Container .Form{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+}
+
+.Container .Form .Form-Input{
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: wheat; */
+}
+
+
+.Container .Form .Form-Input button{
+   background-color: white;
+    /* color: white; */
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    box-shadow: -10px -10px 40px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+    /* padding: 10px; */
+}
+
+.Container .Form .Form-Input label{
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.Container .Form input{
+    display: flex;
+    width: 400px;
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: -7px -7px 10px rgba(255, 255, 255, 0.5),
+                 7px 7px 10px  rgba(70, 70, 70, 0.5);
+    font-family: monospace;
+
+}
+
+.Container .Form input:focus{
+    outline: none;
+    background-color: white;
+} 

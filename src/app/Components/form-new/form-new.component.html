@@ -1,1 +1,31 @@
-<p>form-new works!</p>
+<div class = "elem">
+    <div class = "Container">
+        
+        <div class = "Form-Info">
+            hello this is info about the form
+        </div>
+
+        <div class = "FormContainer" >
+            <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm.value)">
+                <div class = "Form">
+                    <div class = "Form-Input">
+                        <label>Name</label>
+                        <input type = "text" [(ngModel)] = "name" name = "name">
+                    </div>
+                    <div class = "Form-Input">
+                        <label>Email</label>
+                        <input type = "text" [(ngModel)] = "email" name = "email">
+                    </div>
+                    <div class = "Form-Input">
+                        <label>Message</label>
+                        <input type = "text" [(ngModel)] = "message" name = "message">
+                    </div>
+                    <div class = "Form-Input">
+                        <button type = "submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
