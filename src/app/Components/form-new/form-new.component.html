@@ -14,7 +14,7 @@
         </div>
 
         <div class = "FormContainer" >
-            <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm)">
+            <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm.value)">
                 <div class = "Form">
                     <div class = "Form-Input">
                         <label>Name</label>
@@ -32,7 +32,7 @@
                         
                     </div>
                     <div class = "Form-Input">
-                        <button type = "submit" [disabled] = "(newForm.invalid || Votes<=0)"  [ngStyle] = "(newForm.valid && Votes>0)? {'background-color':'#F5B154','color':'white'}:null">Submit</button>
+                        <button type = "submit" [disabled] = "(newForm.invalid || Votes<=0)"  [ngStyle] = "(newForm.valid && Votes>0)? {'background-color':'#FFA500','color':'white'}:null">Submit</button>
                     </div>
                 </div>
             </form>
