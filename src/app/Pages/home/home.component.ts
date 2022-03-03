@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WebSocketAPI } from 'src/app/WebSocketAPI';
 import { Square } from 'src/app/Interfaces/Square';
+import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
+
 
 @Component({
   selector: 'app-home',
@@ -16,8 +18,13 @@ export class HomeComponent implements OnInit {
   Max_: number = 0;
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
+  newSquares: Square[]=[];
 
-  constructor() { }
+  constructor(private SquareService:ValidNewFormService) { 
+    console.log('the new squares are : ')
+    console.log(SquareService.newSquares);
+    this.newSquares = SquareService.newSquares;
+  }
 
   ngOnInit(): void {
     this.webSocketAPI = new WebSocketAPI(this);

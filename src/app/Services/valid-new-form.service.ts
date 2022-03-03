@@ -9,7 +9,7 @@ export class ValidNewFormService {
   //                  variables
   //================================================================
 
-  newSq: Square[]= []; 
+  newSquares: Square[]= []; 
 
   constructor() { }
 
@@ -25,11 +25,11 @@ export class ValidNewFormService {
     color:Color,
     votes:vote
   }
-  this.newSq.push(newSquare);
+  this.newSquares.push(newSquare);
     
  }
 
  Authenticate(){
-  return !!this.newSq;
+  return !!this.newSquares;
  }
 }

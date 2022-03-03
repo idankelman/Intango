@@ -2,6 +2,8 @@
 <app-title header="Home" text = "pick any color to raise it's vote"></app-title>
 <div class = "Grid-Container" [(ngModel)] = "Squares" ngDefaultControl>
     <div class = "Grid" [(ngModel)]="Max_" ngDefaultControl>
-      <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>    
+      <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>  
+      <!-- <h1>{{SquareService.newSquares}}</h1> -->
+      <app-square *ngFor ="let square of newSquares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>  
     </div>
   </div>
