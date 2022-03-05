@@ -11,7 +11,7 @@ import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
 
 export class FormNewComponent implements OnInit {
   square: Square;
-  name: string = '';
+  id: number = 0;
   Color: string = '';
   Votes: number = 0;
 
@@ -25,9 +25,10 @@ export class FormNewComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ChangeName() {
+  ChangeId() {
     // console.log('ChangeName');
-    let t = this.name;
+    // let t = this.name;
+    this.square.id=this.id;
   }
   ChangeColor() {
     // console.log('ChangeColor');
@@ -49,7 +50,7 @@ export class FormNewComponent implements OnInit {
 
   onSubmit(form: any) {
     console.log(form);
-    this.Auth.Validate(this.Votes,this.Color);
+    this.Auth.Validate(this.Votes,this.Color,this.id);
 
     this.router.navigate(['/Home']);
   }
