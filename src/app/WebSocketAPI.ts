@@ -44,9 +44,10 @@ export class WebSocketAPI {
   * Send message to sever via web socket
   * @param {*} message 
   */
-    _send(message:any) {
-        this.stompClient.send("/app/hello", {}, message);
+    _send(message:any, path:string = "hello") {
+        this.stompClient.send("/app/"+path, {}, message);
     }
+    
     onMessageReceived(message:any) {
         this.HomeComponent.handleMessage(message.body);
     }

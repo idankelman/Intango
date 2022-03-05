@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WebSocketAPI } from 'src/app/WebSocketAPI';
 import { Square } from 'src/app/Interfaces/Square';
+import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
+
 
 @Component({
   selector: 'app-home',
@@ -17,13 +19,14 @@ export class HomeComponent implements OnInit {
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
 
-  constructor() { }
+  constructor(private SquareService:ValidNewFormService) { 
+  }
 
   ngOnInit(): void {
     this.webSocketAPI = new WebSocketAPI(this);
     this.webSocketAPI._connect();
     setTimeout(() => {
-      try {this.sendMessage(-1);} catch {console.log('Connection has not been established yet');}}, 3000);
+      try {this.createSquare(this.SquareService.newSquares)} catch {console.log('Connection has not been established yet');}}, 3000);
   }
 
 
@@ -57,6 +60,11 @@ export class HomeComponent implements OnInit {
 
   sendMessage(id: number) {
     this.webSocketAPI._send(id);
+  }
+
+  createSquare(square: Square[]) {
+    let message = JSON.stringify({squares:square});
+    this.webSocketAPI._send(message,"newSquare");
   }
 
   //================================================================
