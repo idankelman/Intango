@@ -24,7 +24,7 @@ export class ValidNewFormService {
     id = Math.floor(Math.random()*1000)
   let newSquare:Square ={
     id: id,
-    color:Color,
+    color:Color.toUpperCase(),
     votes:vote
   }
   this.newSquares.push(newSquare);
