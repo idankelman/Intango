@@ -17,8 +17,9 @@
             <form #newForm="ngForm" (ngSubmit) = "onSubmit(newForm.value)">
                 <div class = "Form">
                     <div class = "Form-Input">
-                        <label>Name</label>
-                        <input type = "text" [(ngModel)] = "name" name = "name" (keyup)="ChangeName()">
+                        <label>Id</label>
+                        <input type = "number" [(ngModel)] = "id" name = "id" (keyup)="ChangeId()">
+                        <em *ngIf='id<0'>required</em>
                     </div>
                     <div class = "Form-Input">
                         <label>Color</label>

@@ -19,9 +19,11 @@ export class ValidNewFormService {
   //                  Functions
   //================================================================
 
- Validate(vote:number ,Color:string){
+ Validate(vote:number ,Color:string,id:number){
+   if(id<0)
+    id = Math.floor(Math.random()*1000)
   let newSquare:Square ={
-    id: Math.floor(Math.random()*1000),
+    id: id,
     color:Color,
     votes:vote
   }
