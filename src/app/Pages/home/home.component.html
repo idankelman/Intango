@@ -1,5 +1,8 @@
 
 <app-title header="Home" text = "pick any color to raise it's vote"></app-title>
+<div class = Input-box>
+    <input type = "number" [(ngModel)]="filterBy" name = "filterBy" placeholder="filterBy" (keyup) = "Filter()" (keydown)="Filter()" >
+</div>
 <div class = "Grid-Container" [(ngModel)] = "Squares" ngDefaultControl>
     <div class = "Grid" [(ngModel)]="Max_" ngDefaultControl>
       <app-square *ngFor ="let square of Squares" [Square_]="square" (btnClick)= "UpVote($event)"  (VoteChange)= "UpdateMax($event)"  [MaxVote]=Max_></app-square>  

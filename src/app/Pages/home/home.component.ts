@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { WebSocketAPI } from 'src/app/WebSocketAPI';
 import { Square } from 'src/app/Interfaces/Square';
 import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   Max_: number = 0;
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
+  filterBy: number = 0;
 
   constructor(private SquareService: ValidNewFormService) {}
 
@@ -77,6 +78,7 @@ export class HomeComponent implements OnInit {
     this.webSocketAPI._send(message, 'EditSquare');
   }
 
+
   //================================================================
   //                unserialize the incomming data
   //================================================================
@@ -106,4 +108,25 @@ export class HomeComponent implements OnInit {
     this.Squares = Squares_;
     this.SquareService.updateSquares(this.Squares);
   }
+
+  //================================================================
+  //filtering
+  //================================================================
+
+  Filter()
+  {
+    if(this.filterBy >= 0)
+      this.Squares = this.SquareService.allSquares;
+    
+    else 
+    {
+      console.log("changed")
+      this.Squares = this.SquareService.allSquares.filter(square => square.votes >= this.filterBy);
+    }
+    
+  }
 }
+
+
+
+
