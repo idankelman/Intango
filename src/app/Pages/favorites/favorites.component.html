@@ -1,9 +1,12 @@
-<div class = "Container" *ngFor="let sq of Squares">
-    <app-collapser>
-        <div class app-title>
-        </div>
-        <div app-content>
-            <app-square [Square_]="sq"></app-square>
-        </div>
-    </app-collapser>
+
+<div class = "Grid-Container">
+    <div class = "Grid">
+        <app-collapser *ngFor="let sq of Squares">
+            <div class app-title>
+            </div>
+            <div app-content>
+                <app-square [Square_]="sq"></app-square>
+            </div>
+        </app-collapser>
+    </div>
 </div>
