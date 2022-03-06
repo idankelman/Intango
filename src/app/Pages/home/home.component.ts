@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
   }
 
   EditSquare(square: Square) {
-    let message = JSON.stringify({ square: square });
+    let message = JSON.stringify(square);
     this.webSocketAPI._send(message, 'EditSquare');
   }
 
