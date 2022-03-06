@@ -82,4 +82,10 @@ export class ReactiveFormComponent implements OnInit {
     console.log(form);
     this.router.navigate(['/Home']);
   }
+
+  Cancel()
+  {
+    this.router.navigate(['/Home']);
+    
+  }
 }
