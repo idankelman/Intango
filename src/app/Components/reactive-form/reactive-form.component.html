@@ -1,1 +1,45 @@
-<p>reactive-form works!</p>
+<div class = "elem">
+    <div class = "Container">
+        
+        <div class = "Form-Info">
+            valid : {{newForm.valid}}<br/>
+            <!-- invalid : {{newForm.invalid}}<br/> -->
+            <!-- dirty :{{newForm.dirty}}<br/> -->
+            <!-- touched: {{newForm.touched}}<br/> -->
+            <!-- pending: {{newForm.pending}}<br/> -->
+            <!-- pristine: {{newForm.pristine}}<br/> -->
+            color-status : {{newForm.controls["Color"]?.valid}}<br/>
+            Votes-status : {{newForm.controls["Votes"]?.valid}}<br/>
+
+        </div>
+        <div class = "FormContainer" >
+            <form autocomplete="off" novalidate>
+                <div class = "Form">
+                    <div class = "form-group">
+                        <label>Id</label>
+                        <input type = "number" id ="id" class = "form-control">
+                        <!-- <em *ngIf='id<0'>required</em> -->
+                    </div>
+                    <div class = "form-group">
+                        <label>Color</label>
+                        <input type = "text" id ="Color" class = "form-control">
+                        <!-- <em *ngIf='newForm.controls["Color"]?.invalid'>required</em> -->
+                    </div>
+                    <div class = "form-group">
+                        <label>Votes</label>
+                        <input type = "number" id = "Votes" class = "form-control">
+                        <!-- <em *ngIf='Votes<=0'>required</em> -->
+                    </div>
+                    <div class = "Form-Input">
+                        <button type = "submit" class = "btn-submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class = SquareContainer>
+        <app-square [(ngModel)] = "square" ngDefaultControl [Square_]= "square"></app-square>
+    </div>
+
+</div>
