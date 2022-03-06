@@ -31,6 +31,7 @@ import { FormNewComponent } from './Components/form-new/form-new.component';
 import { ValidNewFormService } from './Services/valid-new-form.service';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 import { CollapserComponent } from './Components/collapser/collapser.component';
+import { CustomPipePipe } from './Pipes/custom-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CollapserComponent } from './Components/collapser/collapser.component';
     FormNewComponent,
     ReactiveFormComponent,
     CollapserComponent,
+    CustomPipePipe,
   ],
   imports: [
     BrowserModule,
