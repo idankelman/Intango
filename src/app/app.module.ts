@@ -3,9 +3,10 @@
 //------------------------------------------------------------------------------
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+
 // import {CommonModule} from '@angular/common';
 
 //------------------------------------------------------------------------------
@@ -45,6 +46,7 @@ import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot(AppRoutes),
   ],
