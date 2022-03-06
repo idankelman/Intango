@@ -3,14 +3,12 @@ import { WebSocketAPI } from 'src/app/WebSocketAPI';
 import { Square } from 'src/app/Interfaces/Square';
 import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
   //================================================================
   //                  variables
   //================================================================
@@ -19,17 +17,25 @@ export class HomeComponent implements OnInit {
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
 
-  constructor(private SquareService:ValidNewFormService) { 
-  }
+  constructor(private SquareService: ValidNewFormService) {}
 
   ngOnInit(): void {
     this.webSocketAPI = new WebSocketAPI(this);
     this.webSocketAPI._connect();
     setTimeout(() => {
-      try {this.createSquare(this.SquareService.newSquares)} catch {console.log('Connection has not been established yet');}}, 3000);
+      try {
+        this.createSquare(this.SquareService.newSquares);
+        this.SquareService.newSquares = [];
+        if (!!this.SquareService.ChangeSquare)
+        {
+          this.EditSquare(this.SquareService.ChangeSquare);
+          this.SquareService.ChangeSquare = {} as Square;
+        }
+      } catch {
+        console.log('Connection has not been established yet');
+      }
+    }, 3000);
   }
-
-
 
   //================================================================
   //                  WebSocket handler functions
@@ -46,8 +52,7 @@ export class HomeComponent implements OnInit {
 
   UpdateMax(vote: number) {
     if (vote > this.Max_) this.Max_ = vote;
-
-   }
+  }
 
   connect() {
     console.log('connecting...');
@@ -63,8 +68,13 @@ export class HomeComponent implements OnInit {
   }
 
   createSquare(square: Square[]) {
-    let message = JSON.stringify({squares:square});
-    this.webSocketAPI._send(message,"newSquare");
+    let message = JSON.stringify({ squares: square });
+    this.webSocketAPI._send(message, 'newSquare');
+  }
+
+  EditSquare(square: Square) {
+    let message = JSON.stringify({ square: square });
+    this.webSocketAPI._send(message, 'EditSquare');
   }
 
   //================================================================
@@ -97,4 +107,3 @@ export class HomeComponent implements OnInit {
     this.SquareService.updateSquares(this.Squares);
   }
 }
-
