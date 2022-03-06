@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collapser.component.css']
 })
 export class CollapserComponent implements OnInit {
+  visable:boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle(){
+    this.visable= !this.visable
   }
 
 }

@@ -1,0 +1,40 @@
+/* <div class = "Content">
+    <div class = "Top">
+        <button class = "collapser" (click)="collapse()"> 
+        <ng-content select = "app-title"></ng-content>
+    </div>
+    <div class = "Container">
+        <ng-content *ngIf = "visable" select = "app-content"></ng-content>
+    </div>
+
+</div> */
+
+
+.Content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 100px;
+    box-shadow: -10px -10px 120px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+}
+
+.Content .Top{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content:center ;
+}
+
+.Content .Container{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content:center ;
+}
