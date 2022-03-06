@@ -14,7 +14,7 @@
 
         </div>
         <div class = "FormContainer" >
-            <form autocomplete="off" novalidate>
+            <form [formGroup] = "EditSquare" autocomplete="off" novalidate>
                 <div class = "Form">
                     <div class = "form-group">
                         <label>Id</label>
@@ -23,12 +23,12 @@
                     </div>
                     <div class = "form-group">
                         <label>Color</label>
-                        <input type = "text" id ="Color" class = "form-control">
+                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control">
                         <!-- <em *ngIf='newForm.controls["Color"]?.invalid'>required</em> -->
                     </div>
                     <div class = "form-group">
                         <label>Votes</label>
-                        <input type = "number" id = "Votes" class = "form-control">
+                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control">
                         <!-- <em *ngIf='Votes<=0'>required</em> -->
                     </div>
                     <div class = "Form-Input">

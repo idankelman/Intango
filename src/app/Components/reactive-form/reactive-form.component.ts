@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Square } from 'src/app/Interfaces/Square';
 import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-reactive-form',
