@@ -18,17 +18,17 @@
                 <div class = "Form">
                     <div class = "form-group">
                         <label>Id</label>
-                        <input type = "number" id ="id" class = "form-control">
+                        <input type = "number" id ="id" class = "form-control" >
                         <!-- <em *ngIf='id<0'>required</em> -->
                     </div>
                     <div class = "form-group">
                         <label>Color</label>
-                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control">
+                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()">
                         <!-- <em *ngIf='newForm.controls["Color"]?.invalid'>required</em> -->
                     </div>
                     <div class = "form-group">
                         <label>Votes</label>
-                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control">
+                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()" >
                         <!-- <em *ngIf='Votes<=0'>required</em> -->
                     </div>
                     <div class = "Form-Input">

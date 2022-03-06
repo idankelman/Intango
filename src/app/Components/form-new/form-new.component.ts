@@ -25,13 +25,16 @@ export class FormNewComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
+  // OnChange function 
+  //----------------------------------------------------------------------------------
+
   ChangeId() {
-    // console.log('ChangeName');
-    // let t = this.name;
     this.square.id=this.id;
   }
+
+
   ChangeColor() {
-    // console.log('ChangeColor');
     let tmp = this.Color;
     if (tmp.length > 0 && tmp.charAt(0) === '#') {
       while (tmp.length < 7) {
@@ -39,10 +42,10 @@ export class FormNewComponent implements OnInit {
       }
     }
     this.square.color = tmp;
-    // console.log(tmp);
   }
+
+
   ChangeVote() {
-    // console.log('ChangeVote');
     if (this.Votes >= 0) {
       this.square.votes = this.Votes;
     }
