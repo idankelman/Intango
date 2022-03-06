@@ -38,9 +38,10 @@ export class ReactiveFormComponent implements OnInit {
     //setting the right square to the form :
     //=======================================
 
-    let id = this.route.snapshot.paramMap.get('id');
-    if (id !== null) {
-      this.square = this.SquareService.getSquare(parseInt(id));
+    let id_ = this.route.snapshot.paramMap.get('id');
+    if (id_ !== null) {
+      this.square = this.SquareService.getSquare(parseInt(id_));
+      this.id = parseInt(id_);
     }
 
 
