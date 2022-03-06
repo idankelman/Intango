@@ -24,7 +24,7 @@ export class ValidNewFormService {
   }
 
   getSquare(id:number):Square{
-    console.log("the given id is :"+id);
+    // console.log("the given id is :"+id);
     let Square = this.allSquares.find(square => square.id == id);
     return Square==undefined?{id:-1,color:"#fff",votes:0}:Square;
   }

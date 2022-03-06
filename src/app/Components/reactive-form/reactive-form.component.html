@@ -14,7 +14,7 @@
 
         </div>
         <div class = "FormContainer" >
-            <form [formGroup] = "EditSquare" autocomplete="off" novalidate>
+            <form [formGroup] = "EditSquare" autocomplete="off" novalidate (ngSubmit)="MakeChanges(EditSquare.value)" >
                 <div class = "Form">
                     <div class = "form-group">
                         <label>Id</label>

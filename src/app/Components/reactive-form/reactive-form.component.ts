@@ -41,11 +41,11 @@ export class ReactiveFormComponent implements OnInit {
     //=======================================
     
     let id = this.route.snapshot.paramMap.get('id');
-    console.log(id);
+    // console.log(id);
     if (id !== null) {
-      console.log('the id :' + id);
+      // console.log('the id :' + id);
       this.square = this.SquareService.getSquare(parseInt(id));
-      console.log(this.square);
+      // console.log(this.square);
     
     }
         //creating new form controls : 
@@ -58,5 +58,9 @@ export class ReactiveFormComponent implements OnInit {
       Votes: Votes
     });
 
+  }
+
+  MakeChanges(form: any) {
+    console.log(form);
   }
 }
