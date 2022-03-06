@@ -2,37 +2,35 @@
     <div class = "Container">
         
         <div class = "Form-Info">
-            Edit Square
-            <!-- valid : {{newForm.valid}}<br/> -->
-            <!-- invalid : {{newForm.invalid}}<br/> -->
-            <!-- dirty :{{newForm.dirty}}<br/> -->
-            <!-- touched: {{newForm.touched}}<br/> -->
-            <!-- pending: {{newForm.pending}}<br/> -->
-            <!-- pristine: {{newForm.pristine}}<br/> -->
-            <!-- color-status : {{newForm.controls["Color"]?.valid}}<br/> -->
-            <!-- Votes-status : {{newForm.controls["Votes"]?.valid}}<br/> -->
+            Edit Square <br>
+            valid : {{EditSquare.valid}} <br/>
+            <!-- invalid : {{EditSquare.invalid}}<br/> -->
+            <!-- dirty :{{EditSquare.dirty}}<br/> -->
+            <!-- touched: {{EditSquare.touched}}<br/> -->
+            <!-- pending: {{EditSquare.pending}}<br/> -->
+            <!-- pristine: {{EditSquare.pristine}}<br/> -->
+            color-status : {{EditSquare.controls["Color"]?.valid}}<br/>
+            Votes-status : {{EditSquare.controls["Votes"]?.valid}}<br/>
 
         </div>
         <div class = "FormContainer" >
             <form [formGroup] = "EditSquare" autocomplete="off" novalidate (ngSubmit)="MakeChanges(EditSquare.value)" >
                 <div class = "Form">
                     <div class = "form-group">
-                        <label>Id</label>
-                        <input type = "number" id ="id" class = "form-control" >
-                        <!-- <em *ngIf='id<0'>required</em> -->
-                    </div>
-                    <div class = "form-group">
-                        <label>Color</label>
-                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()">
-                        <!-- <em *ngIf='newForm.controls["Color"]?.invalid'>required</em> -->
-                    </div>
-                    <div class = "form-group">
-                        <label>Votes</label>
-                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()" >
-                        <!-- <em *ngIf='Votes<=0'>required</em> -->
+                        <label>Id : {{id}}</label>                       
                     </div>
                     <div class = "Form-Input">
-                        <button type = "submit" class = "btn-submit">Submit</button>
+                        <label>Color</label>
+                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()" required>
+                        <em *ngIf='EditSquare.controls["Color"]?.invalid'>required</em>
+                    </div>
+                    <div class = "Form-Input">
+                        <label>Votes</label>
+                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()" required >
+                        <em *ngIf='EditSquare.value.Votes<0'>required</em>
+                    </div>
+                    <div class = "Form-Input">
+                        <button type = "submit" class = "btn-submit" [disabled]= "EditSquare.invalid">Submit</button>
                     </div>
                 </div>
             </form>
