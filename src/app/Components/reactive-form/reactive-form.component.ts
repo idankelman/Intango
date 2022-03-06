@@ -47,8 +47,8 @@ export class ReactiveFormComponent implements OnInit {
     //creating new form controls :
     //=======================================
 
-    let Color = new FormControl(this.square.color,Validators.required);
-    let Votes = new FormControl(this.square.votes,Validators.required);
+    let Color = new FormControl(this.square.color,[Validators.required,Validators.pattern('(#[0-9a-fA-F]{6}) || ([a-zA-Z])')]);
+    let Votes = new FormControl(this.square.votes,[Validators.required,Validators.min(0)]);
     this.EditSquare = new FormGroup({
       Color: Color,
       Votes: Votes,

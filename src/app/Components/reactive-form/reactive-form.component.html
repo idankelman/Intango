@@ -30,8 +30,8 @@
                         <em *ngIf='EditSquare.value.Votes<0'>required</em>
                     </div>
                     <div class = "Form-Input">
-                        <button type = "submit" class = "btn-submit" [disabled]= "EditSquare.invalid" [ngStyle] = "(EditSquare.valid && EditSquare.value.Votes>=0)? {'background-color':'#FFA500','color':'white'}:null" >Submit</button>
                         <button class = "btn-cancel" (click) = "Cancel()" [ngStyle] = "{'background-color':'#FFA500','color':'white'}">Cancel</button>
+                        <button type = "submit" class = "btn-submit" [disabled]= "EditSquare.invalid" [ngStyle] = "(EditSquare.valid && EditSquare.value.Votes>=0)? {'background-color':'#FFA500','color':'white'}:null" >Submit</button>
                     </div>
                 </div>
             </form>
