@@ -2,14 +2,15 @@
     <div class = "Container">
         
         <div class = "Form-Info">
-            Edit Square <br>
+            Edit Square  <br>
             valid : {{EditSquare.valid}} <br/>
+            Status : {{EditSquare.status | uppercase}} <br/>
             <!-- invalid : {{EditSquare.invalid}}<br/> -->
             <!-- dirty :{{EditSquare.dirty}}<br/> -->
             <!-- touched: {{EditSquare.touched}}<br/> -->
             <!-- pending: {{EditSquare.pending}}<br/> -->
             <!-- pristine: {{EditSquare.pristine}}<br/> -->
-            color-status : {{EditSquare.controls["Color"]?.valid}}<br/>
+            color-status : {{EditSquare.controls["Color"]?.valid }}<br/>
             Votes-status : {{EditSquare.controls["Votes"]?.valid}}<br/>
 
         </div>
@@ -17,7 +18,7 @@
             <form [formGroup] = "EditSquare" autocomplete="off" novalidate (ngSubmit)="MakeChanges(EditSquare.value)" >
                 <div class = "Form">
                     <div class = "form-group">
-                        <label>Id : {{id}}</label>                       
+                        <label>Id : {{id | number }}</label>                       
                     </div>
                     <div class = "Form-Input">
                         <label>Color</label>
