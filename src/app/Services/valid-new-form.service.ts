@@ -12,6 +12,7 @@ export class ValidNewFormService {
 
   allSquares: Square[] = [];
   newSquares: Square[] = [];
+  QuerySquares: Square[] = [];
   ChangeSquare!: Square;
 
   constructor() {}
@@ -61,5 +62,12 @@ export class ValidNewFormService {
 
   Authenticate() {
     return !!this.newSquares;
+  }
+
+  updateQuery(Queries:Square[])
+  {
+    this.QuerySquares = [];
+    if(Queries.length>0)
+      this.QuerySquares = Queries;    
   }
 }

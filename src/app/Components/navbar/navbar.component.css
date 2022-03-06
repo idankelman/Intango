@@ -123,7 +123,7 @@ a{color: black;}
 
 .Container .InputBox input:focus{
     outline: none;
-    background-color: aqua;
+    background-color: rgba(199, 199, 199, 0.911);
 } 
 
 

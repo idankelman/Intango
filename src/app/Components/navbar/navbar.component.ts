@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { findIndex } from 'rxjs';
+import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  Query : string = "";
   
-  constructor() { }
+  constructor(private SquareService:ValidNewFormService) { }
 
   ngOnInit(): void {
+  }
+
+  MakeQuery(){
+    let term = this.Query.toUpperCase()
+    let Squares = this.SquareService.allSquares;
+    let Queries = Squares.filter(square=>square.color.indexOf(term)>-1);
+    this.SquareService.updateQuery(Queries);
+
   }
 
 }

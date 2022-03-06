@@ -7,7 +7,7 @@
         </div> 
     </div>
     <div class = "InputBox">
-        <input type = "text">
+        <input type = "text" [(ngModel)]="Query" name = "Query" (keydown)="MakeQuery()" (keyup)="MakeQuery()">
     </div>
     <div class = Routes>
         <a [routerLink] = "['/Home']" routerLinkActive = "active">Home</a>
