@@ -1,37 +1,65 @@
 import { Injectable } from '@angular/core';
+import { SquareComponent } from '../Components/square/square.component';
 import { Square } from '../Interfaces/Square';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ValidNewFormService {
   //================================================================
   //                  variables
   //================================================================
 
-  newSquares: Square[]= []; 
+  allSquares: Square[] = [];
+  newSquares: Square[] = [];
+  ChangeSquare!: Square;
 
-  constructor() { }
-
-
+  constructor() {}
 
   //================================================================
   //                  Functions
   //================================================================
 
- Validate(vote:number ,Color:string,id:number){
-   if(id<0)
-    id = Math.floor(Math.random()*1000)
-  let newSquare:Square ={
-    id: id,
-    color:Color,
-    votes:vote
+  updateSquares(Squares: Square[]) {
+    this.allSquares = Squares;
   }
-  this.newSquares.push(newSquare);
-    
- }
 
- Authenticate(){
-  return !!this.newSquares;
- }
+  getSquare(id: number): Square {
+    // console.log("the given id is :"+id);
+    let Square = this.allSquares.find((square) => square.id == id);
+    return Square == undefined ? { id: -1, color: '#fff', votes: 0 } : Square;
+  }
+
+  Validate(id: number, vote: number, Color: string) {
+
+    if (id < 0) id = Math.floor(Math.random() * 1000);
+    let tmp = Color;
+    if (tmp.length > 0 && tmp.charAt(0) === '#')
+      while (tmp.length < 7) 
+        tmp += 'F';
+
+    let newSquare: Square = {
+      id: id,
+      color: tmp.toUpperCase(),
+      votes: vote,
+    };
+
+    this.newSquares.push(newSquare);
+    
+  }
+
+  Edit(id: number, vote: number, Color: string) {
+    let index = this.allSquares.findIndex((square) => square.id == id);
+    if (index < 0) return;
+
+    this.ChangeSquare = {
+      id: id,
+      color: Color.toUpperCase(),
+      votes: vote,
+    };
+  }
+
+  Authenticate() {
+    return !!this.newSquares;
+  }
 }

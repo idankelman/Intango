@@ -3,9 +3,10 @@
 //------------------------------------------------------------------------------
 
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+
 // import {CommonModule} from '@angular/common';
 
 //------------------------------------------------------------------------------
@@ -28,6 +29,7 @@ import { FormNewComponent } from './Components/form-new/form-new.component';
 //--------------------------------------------------------------------------------
 
 import { ValidNewFormService } from './Services/valid-new-form.service';
+import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +41,12 @@ import { ValidNewFormService } from './Services/valid-new-form.service';
     FavoritesComponent,
     AdminComponent,
     FormNewComponent,
+    ReactiveFormComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot(AppRoutes),
   ],

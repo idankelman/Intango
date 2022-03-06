@@ -1,0 +1,45 @@
+<div class = "elem">
+    <div class = "Container">
+        
+        <div class = "Form-Info">
+            Edit Square <br>
+            valid : {{EditSquare.valid}} <br/>
+            <!-- invalid : {{EditSquare.invalid}}<br/> -->
+            <!-- dirty :{{EditSquare.dirty}}<br/> -->
+            <!-- touched: {{EditSquare.touched}}<br/> -->
+            <!-- pending: {{EditSquare.pending}}<br/> -->
+            <!-- pristine: {{EditSquare.pristine}}<br/> -->
+            color-status : {{EditSquare.controls["Color"]?.valid}}<br/>
+            Votes-status : {{EditSquare.controls["Votes"]?.valid}}<br/>
+
+        </div>
+        <div class = "FormContainer" >
+            <form [formGroup] = "EditSquare" autocomplete="off" novalidate (ngSubmit)="MakeChanges(EditSquare.value)" >
+                <div class = "Form">
+                    <div class = "form-group">
+                        <label>Id : {{id}}</label>                       
+                    </div>
+                    <div class = "Form-Input">
+                        <label>Color</label>
+                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()" >
+                        <em *ngIf='EditSquare.controls["Color"]?.invalid'>required</em>
+                    </div>
+                    <div class = "Form-Input">
+                        <label>Votes</label>
+                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()"  >
+                        <em *ngIf='EditSquare.value.Votes<0'>required</em>
+                    </div>
+                    <div class = "Form-Input">
+                        <button class = "btn-cancel" (click) = "Cancel()">Cancel</button>
+                        <button type = "submit" class = "btn-submit" [disabled]= "EditSquare.invalid" [ngStyle] = "(EditSquare.valid && EditSquare.value.Votes>=0)? {'background-color':'#FFA500','color':'white'}:null" >Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class = SquareContainer>
+        <app-square [(ngModel)] = "square" ngDefaultControl [Square_]= "square"></app-square>
+    </div>
+
+</div>
