@@ -1,0 +1,11 @@
+<div class = "Content" (click)="toggle()">
+    <!-- <button class = "collapser" >Collpase</button> -->
+    <div class = "Top">
+        <ng-content *ngIf = "visable" select = "[app-title]"></ng-content>
+    </div>
+   
+    <div class = "Container">
+        <ng-content *ngIf = "visable" select = "[app-content]"></ng-content>
+    </div>
+
+</div>
