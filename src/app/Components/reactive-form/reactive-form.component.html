@@ -21,17 +21,17 @@
                     </div>
                     <div class = "Form-Input">
                         <label>Color</label>
-                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()" >
+                        <input formControlName = "Color" type = "text" (keyup)="ChangeColor()" >
                         <em *ngIf='EditSquare.controls["Color"]?.invalid'>required</em>
                     </div>
                     <div class = "Form-Input">
                         <label>Votes</label>
-                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()"  >
+                        <input  formControlName = "Votes"  type = "number" (keyup)="ChangeVote()" (keydown)="ChangeVote()"  >
                         <em *ngIf='EditSquare.value.Votes<0'>required</em>
                     </div>
                     <div class = "Form-Input">
-                        <button class = "btn-cancel" (click) = "Cancel()">Cancel</button>
-                        <button type = "submit" class = "btn-submit" [disabled]= "EditSquare.invalid" [ngStyle] = "(EditSquare.valid && EditSquare.value.Votes>=0)? {'background-color':'#FFA500','color':'white'}:null" >Submit</button>
+                        <button (click) = "Cancel()">Cancel</button>
+                        <button type = "submit"[disabled]= "EditSquare.invalid" [ngStyle] = "(EditSquare.valid && EditSquare.value.Votes>=0)? {'background-color':'#FFA500','color':'white'}:null" >Submit</button>
                     </div>
                 </div>
             </form>
