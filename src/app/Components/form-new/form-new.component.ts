@@ -50,7 +50,7 @@ export class FormNewComponent implements OnInit {
 
   onSubmit(form: any) {
     console.log(form);
-    this.Auth.Validate(this.Votes,this.Color,this.id);
+    this.Auth.Validate(form.id,form.Votes,form.Color);
 
     this.router.navigate(['/Home']);
   }

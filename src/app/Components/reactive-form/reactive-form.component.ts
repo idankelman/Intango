@@ -61,6 +61,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   MakeChanges(form: any) {
+    this.SquareService.Edit(this.square.id,this.square.votes,this.square.color);
     console.log(form);
   }
 }
