@@ -30,6 +30,7 @@ import { FormNewComponent } from './Components/form-new/form-new.component';
 
 import { ValidNewFormService } from './Services/valid-new-form.service';
 import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.component';
+import { CollapserComponent } from './Components/collapser/collapser.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.
     AdminComponent,
     FormNewComponent,
     ReactiveFormComponent,
+    CollapserComponent,
   ],
   imports: [
     BrowserModule,
