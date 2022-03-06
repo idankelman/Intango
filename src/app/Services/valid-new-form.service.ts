@@ -70,4 +70,8 @@ export class ValidNewFormService {
     if(Queries.length>0)
       this.QuerySquares = Queries;    
   }
+
+  getQueries(){
+    return this.QuerySquares;
+  }
 }
