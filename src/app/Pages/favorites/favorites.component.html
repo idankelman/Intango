@@ -1,1 +1,10 @@
-<p>favorites works!</p>
+<div class = "Container" *ngFor="let sq of Squares">
+    <app-collapser>
+        <div class = "app-title">
+            <h1>hello</h1>
+        </div>
+        <div class = "app-content">
+            <app-square [Square_]="sq"></app-square>
+        </div>
+    </app-collapser>
+</div>
