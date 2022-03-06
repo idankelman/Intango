@@ -9,15 +9,25 @@ export class ValidNewFormService {
   //                  variables
   //================================================================
 
+  allSquares :Square[] = [];
   newSquares: Square[]= []; 
 
   constructor() { }
 
 
-
   //================================================================
   //                  Functions
   //================================================================
+
+  updateSquares(Squares:Square[]){
+    this.allSquares = Squares;
+  }
+
+  getSquare(id:number):Square{
+    console.log("the given id is :"+id);
+    let Square = this.allSquares.find(square => square.id == id);
+    return Square==undefined?{id:-1,color:"#fff",votes:0}:Square;
+  }
 
  Validate(vote:number ,Color:string,id:number){
    if(id<0)
@@ -27,8 +37,7 @@ export class ValidNewFormService {
     color:Color.toUpperCase(),
     votes:vote
   }
-  this.newSquares.push(newSquare);
-    
+  this.newSquares.push(newSquare);  
  }
 
  Authenticate(){

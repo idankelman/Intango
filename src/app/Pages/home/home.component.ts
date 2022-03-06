@@ -94,6 +94,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.Squares = Squares_;
+    this.SquareService.updateSquares(this.Squares);
   }
 }
 
