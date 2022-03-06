@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   Max_: number = 0;
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
-  filterBy: number = 0;
+  filterBy!: number;
 
   constructor(private SquareService: ValidNewFormService) {}
 
@@ -115,12 +115,11 @@ export class HomeComponent implements OnInit {
 
   Filter()
   {
-    if(this.filterBy >= 0)
+    if(this.filterBy <= 0)
       this.Squares = this.SquareService.allSquares;
     
     else 
     {
-      console.log("changed")
       this.Squares = this.SquareService.allSquares.filter(square => square.votes >= this.filterBy);
     }
     
