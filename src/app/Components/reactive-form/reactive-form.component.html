@@ -21,12 +21,12 @@
                     </div>
                     <div class = "Form-Input">
                         <label>Color</label>
-                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()" required>
+                        <input formControlName = "Color" type = "text" id ="Color" class = "form-control" (keyup)="ChangeColor()" >
                         <em *ngIf='EditSquare.controls["Color"]?.invalid'>required</em>
                     </div>
                     <div class = "Form-Input">
                         <label>Votes</label>
-                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()" required >
+                        <input  formControlName = "Votes"  type = "number" id = "Votes" class = "form-control"  (keyup)="ChangeVote()" (keydown)="ChangeVote()"  >
                         <em *ngIf='EditSquare.value.Votes<0'>required</em>
                     </div>
                     <div class = "Form-Input">

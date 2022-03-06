@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Square } from 'src/app/Interfaces/Square';
 import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
@@ -47,8 +47,8 @@ export class ReactiveFormComponent implements OnInit {
     //creating new form controls :
     //=======================================
 
-    let Color = new FormControl(this.square.color);
-    let Votes = new FormControl(this.square.votes);
+    let Color = new FormControl(this.square.color,Validators.required);
+    let Votes = new FormControl(this.square.votes,Validators.required);
     this.EditSquare = new FormGroup({
       Color: Color,
       Votes: Votes,
