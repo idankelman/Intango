@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { findIndex } from 'rxjs';
+// import { findIndex } from 'rxjs';
+import * as $ from 'jquery';
+
 import { ValidNewFormService } from 'src/app/Services/valid-new-form.service';
 
 @Component({
@@ -21,7 +23,10 @@ export class NavbarComponent implements OnInit {
     let Squares = this.SquareService.allSquares;
     let Queries = Squares.filter(square=>square.color.indexOf(term)>-1);
     this.SquareService.updateQuery(Queries);
-
+    $('input').hide();
+    
   }
+
+
 
 }
