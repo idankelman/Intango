@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class = "modal"  [(ngModel)] = "QuerySquares" ngDefaultControl>
+<div class = "modal"  [(ngModel)] = "QuerySquares" ngDefaultControl >
     <app-modal>
         <div class = "list-group" >
             <a class = "list-group-item" *ngFor = "let square of QuerySquares" [routerLink]='["/Square",square.id]'>{{square.color}}</a>

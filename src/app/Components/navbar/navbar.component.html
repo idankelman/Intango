@@ -9,7 +9,7 @@
     <div class = "InputBox">
         <input type = "text" [(ngModel)]="Query" name = "Query" (keydown)="MakeQuery()" (keyup)="MakeQuery()">
     </div>
-    <button class ="search" (click) = "Search()" >&real;earch</button>
+    <button class ="search" appModalTrigger >&real;earch</button>
     <div class = Routes>
         <a [routerLink] = "['/Home']" routerLinkActive = "active">Home</a>
         <a [routerLink] = "['/Favorites']" routerLinkActive = "active">Favorites</a>
