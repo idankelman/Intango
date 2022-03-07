@@ -33,6 +33,7 @@ import { ReactiveFormComponent } from './Components/reactive-form/reactive-form.
 import { CollapserComponent } from './Components/collapser/collapser.component';
 import { CustomPipePipe } from './Pipes/custom-pipe.pipe';
 import { ModalComponent } from './Components/modal/modal.component';
+import { ModalTriggerDirective } from './Directives/modal-trigger.directive';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ModalComponent } from './Components/modal/modal.component';
     CollapserComponent,
     CustomPipePipe,
     ModalComponent,
+    ModalTriggerDirective,
   ],
   imports: [
     BrowserModule,
