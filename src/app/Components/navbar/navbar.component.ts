@@ -23,8 +23,7 @@ export class NavbarComponent implements OnInit {
     let Squares = this.SquareService.allSquares;
     let Queries = Squares.filter(square=>square.color.indexOf(term)>-1);
     this.SquareService.updateQuery(Queries);
-    $('input').hide();
-    
+    // $(".modal").modal({});
   }
 
 
