@@ -1,4 +1,4 @@
-import { Directive, ElementRef, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 
 @Directive({
@@ -10,6 +10,7 @@ export class ModalTriggerDirective implements OnInit{
   //                          Properties
 
   elem! : HTMLElement;
+  @Input() Switch : boolean = false;
 
 
   //----------------------------------------------------------------------------------
@@ -26,14 +27,23 @@ export class ModalTriggerDirective implements OnInit{
   //----------------------------------------------------------------------------------
   //                          adding event listener to the element
   ngOnInit(): void {
-    this.elem.addEventListener('click',this.OpenModal);
+
+    if(!this.Switch)
+      this.elem.addEventListener('click',this.OpenModal);
+    else
+      this.elem.addEventListener('click',this.closeModal);
   }
 
 
   //----------------------------------------------------------------------------------
-  //                          closing the modal
+  //                          closing/opening the modal
   OpenModal() {
     $(".Wrapper").show();
+  }
+
+  closeModal(){
+    $(".Wrapper").hide();
+    
   }
 
 }
