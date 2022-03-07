@@ -11,4 +11,8 @@
     </div>
 </div>
 
-<app-modal></app-modal>
+<app-modal>
+    <div class = "list-group">
+        <a class = "list-group-item" *ngFor = "let square of QuerySquares" [routerLink]='["/Square",square.id]'>{{square.color}}</a>
+    </div>
+</app-modal>
