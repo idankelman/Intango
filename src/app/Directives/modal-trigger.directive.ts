@@ -26,14 +26,14 @@ export class ModalTriggerDirective implements OnInit{
   //----------------------------------------------------------------------------------
   //                          adding event listener to the element
   ngOnInit(): void {
-    this.elem.addEventListener('click',this.CloseModal);
+    this.elem.addEventListener('click',this.OpenModal);
   }
 
 
   //----------------------------------------------------------------------------------
   //                          closing the modal
-  CloseModal() {
-    $(".Wrapper").hide();
+  OpenModal() {
+    $(".Wrapper").show();
   }
 
 }

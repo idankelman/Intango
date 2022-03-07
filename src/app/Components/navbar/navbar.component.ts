@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // $("#simple-modal").hide();
-
   }
 
   MakeQuery(){
@@ -29,10 +27,6 @@ export class NavbarComponent implements OnInit {
     // $(".modal").modal({});
   }
 
-  Search()
-  {
-    $(".Wrapper").show();
-  }
 
 
 }
