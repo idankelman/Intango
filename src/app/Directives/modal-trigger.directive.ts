@@ -31,7 +31,10 @@ export class ModalTriggerDirective implements OnInit{
     if(!this.Switch)
       this.elem.addEventListener('click',this.OpenModal);
     else
+    {
       this.elem.addEventListener('click',this.closeModal);
+      this.closeModal();
+    }
   }
 
 
