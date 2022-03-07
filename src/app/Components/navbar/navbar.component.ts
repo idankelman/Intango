@@ -16,6 +16,8 @@ export class NavbarComponent implements OnInit {
   constructor(private SquareService:ValidNewFormService) { }
 
   ngOnInit(): void {
+    // $("#simple-modal").hide();
+
   }
 
   MakeQuery(){
@@ -26,6 +28,10 @@ export class NavbarComponent implements OnInit {
     // $(".modal").modal({});
   }
 
+  Search()
+  {
+    $(".Wrapper").show();
+  }
 
 
 }

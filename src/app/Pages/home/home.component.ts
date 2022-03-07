@@ -16,9 +16,10 @@ export class HomeComponent implements OnInit {
   Max_: number = 0;
   webSocketAPI!: WebSocketAPI;
   Squares: Square[] = [];
+  QuerySquares! : Square[];
   filterBy!: number;
 
-  constructor(private SquareService: ValidNewFormService) {}
+  constructor(private SquareService: ValidNewFormService) {this.QuerySquares = this.SquareService.getQueries();}
 
   ngOnInit(): void {
     this.webSocketAPI = new WebSocketAPI(this);
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
         console.log('Connection has not been established yet');
       }
     }, 3000);
+
   }
 
   //================================================================
