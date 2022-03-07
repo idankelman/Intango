@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     //subscribing to the observable
     this.SquareService.getQueries().subscribe({
       next: (squares: Square[]) => {
-        console.log('Query: ' + squares);
+        // console.log('Query: ' + squares);
         this.QuerySquares = squares;},
       error: (err) => {console.log(err);},
       complete: () => {console.log('complete');}

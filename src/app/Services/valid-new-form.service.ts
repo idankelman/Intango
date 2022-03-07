@@ -72,7 +72,7 @@ export class ValidNewFormService {
       this.QuerySquares = Queries;    
 
     this.obsr.next(this.QuerySquares);
-    console.log(this.QuerySquares);
+    // console.log(this.QuerySquares);
     // console.log("updated");
   }
 

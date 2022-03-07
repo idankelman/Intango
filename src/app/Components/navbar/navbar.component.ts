@@ -13,7 +13,8 @@ export class NavbarComponent implements OnInit {
 
   Query : string = "";
   
-  constructor(private SquareService:ValidNewFormService) { }
+  constructor(private SquareService:ValidNewFormService) { 
+  }
 
   ngOnInit(): void {
     // $("#simple-modal").hide();
@@ -24,7 +25,7 @@ export class NavbarComponent implements OnInit {
     let term = this.Query.toUpperCase()
     let Squares = this.SquareService.allSquares;
     let Queries = Squares.filter(square=>square.color.indexOf(term)>-1);
-    this.SquareService.updateQuery(Queries);
+    this.SquareService.updateQuery(term.length==0?Squares:Queries);
     // $(".modal").modal({});
   }
 
