@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
   QuerySquares! : Square[];
   filterBy!: number;
 
-  constructor(private SquareService: ValidNewFormService) {this.QuerySquares = this.SquareService.getQueries();}
+  constructor(private SquareService: ValidNewFormService) {
+  }
 
   ngOnInit(): void {
     this.webSocketAPI = new WebSocketAPI(this);
@@ -37,6 +38,16 @@ export class HomeComponent implements OnInit {
         console.log('Connection has not been established yet');
       }
     }, 3000);
+
+    //----------------------------------------------------------------
+    //subscribing to the observable
+    this.SquareService.getQueries().subscribe({
+      next: (squares: Square[]) => {
+        console.log('Query: ' + squares);
+        this.QuerySquares = squares;},
+      error: (err) => {console.log(err);},
+      complete: () => {console.log('complete');}
+    });
 
   }
 
