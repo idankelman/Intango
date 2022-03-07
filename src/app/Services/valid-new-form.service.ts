@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SquareComponent } from '../Components/square/square.component';
+import { BehaviorSubject, Observable, of} from 'rxjs';
 import { Square } from '../Interfaces/Square';
+
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,10 @@ export class ValidNewFormService {
   //================================================================
   //                  variables
   //================================================================
-
+  obsr = new BehaviorSubject<Square[]>([]);
   allSquares: Square[] = [];
   newSquares: Square[] = [];
+  QuerySquares: Square[] = [];
   ChangeSquare!: Square;
 
   constructor() {}
@@ -61,5 +63,20 @@ export class ValidNewFormService {
 
   Authenticate() {
     return !!this.newSquares;
+  }
+
+  updateQuery(Queries:Square[])
+  {
+    this.QuerySquares = [];
+    if(Queries.length>0)
+      this.QuerySquares = Queries;    
+
+    this.obsr.next(this.QuerySquares);
+    // console.log(this.QuerySquares);
+    // console.log("updated");
+  }
+
+  getQueries():Observable<Square[]>{
+    return this.obsr.asObservable();
   }
 }

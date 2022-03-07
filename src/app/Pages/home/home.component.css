@@ -107,3 +107,30 @@
     transition: all ease 0.4s;
 } 
 
+
+
+.list-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.list-group .list-group-item{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    font-family: monospace;
+    background-color: white;
+    transition: all ease 0.4s;
+    /* padding-top: 20px; */
+    padding: 20px;
+} 
+
+.list-group .list-group-item:hover{
+    background-color: rgba(195, 195, 195, 0.555);
+    transition: all ease 0.4s;
+}
