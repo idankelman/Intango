@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestsService } from 'src/app/Services/requests.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  response:String = "placeholder";
+
+  constructor(private Requester:RequestsService) { }
 
   ngOnInit(): void {
+    this.Requester.getData().subscribe(
+      (data)=>{
+        console.log(data);
+      }
+    );
   }
 
+  getMessage()
+  {
+    this.Requester.getData().subscribe((data)=>{this.response=JSON.stringify(data)});
+    return "get World";
+  }
+
+  sendMessage()
+  {
+    return "Send World";
+  }
+
+  deleteMessage(){
+    return "Delete Message";
+  }
 }

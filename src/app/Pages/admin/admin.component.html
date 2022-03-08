@@ -1,1 +1,22 @@
-<p>admin works!</p>
+<div class = "Wrapper">
+    <div class = "Top">
+          this is the admin page
+          <br>
+          <br>
+          Make Requests
+    </div>
+    <div class = "Container">
+        <div class = "Button-Container">
+            <button class = "Button" (click) = "getMessage()">getMessage</button>
+            <button class = "Button" (click) = "sendMessage()">sendMessage</button>
+            <button class = "Button" (click) = "deleteMessage()">deleteMessage</button>
+        </div>
+    </div>    
+
+    <div class = "Container">
+        <div class = "Response">
+            {{response}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,97 @@
+
+
+.Wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    background-color:white;
+    border-radius: 20px;
+    box-shadow: -10px -10px 120px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+    transition: all ease 0.3s;
+}
+
+.Wrapper .Top{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    font-size: 2em;
+    font-family: monospace;
+    text-align: center;
+}
+
+.Wrapper .Container{
+    display: flex;
+    width: 100%;
+    height: 300px;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+}
+
+.Wrapper .Container .Button-Container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content:space-evenly ;
+    transition: all ease 0.3s;
+}
+
+
+.Wrapper .Container .Button-Container button{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    box-shadow: -10px -10px 120px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+    font-family: monospace;
+    font-size: 15px;
+}
+
+.Wrapper .Container .Button-Container button:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+
+.Wrapper .Container .Response{
+    display: flex;
+    width: 80%;
+    height: 100%;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    font-family: monospace;
+    font-size: 15px;
+    box-shadow: -10px -10px 120px rgba(255, 255, 255, 0.6),
+    10px 10px 20px rgba(70, 70, 70, 0.4);
+    border-radius: 50px;
+    text-align: center;
+    margin: 40px;
+    margin-bottom: 40px;
+}
+
+/* 
+<div class = "Container">
+<div class = "Response">
+    {{response}}
+</div>
+</div> */
