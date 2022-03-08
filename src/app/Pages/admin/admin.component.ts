@@ -9,6 +9,11 @@ import { RequestsService } from 'src/app/Services/requests.service';
 export class AdminComponent implements OnInit {
 
   response:String = "placeholder";
+  // Currencies:String[] = ['USD','EUR','GBP'];
+  // Value : number []  =[];
+  Content:any = {};
+  keys : string[] = [];
+
 
   constructor(private Requester:RequestsService) { }
 
@@ -16,13 +21,14 @@ export class AdminComponent implements OnInit {
     this.Requester.getData().subscribe(
       (data)=>{
         console.log(data);
+        this.parseValue(data);
       }
     );
   }
 
   getMessage()
   {
-    this.Requester.getData().subscribe((data)=>{this.response=JSON.stringify(data)});
+    this.Requester.getData().subscribe((data)=>{this.parseValue(data)});
     return "get World";
   }
 
@@ -33,5 +39,15 @@ export class AdminComponent implements OnInit {
 
   deleteMessage(){
     return "Delete Message";
+  }
+
+  parseValue(data:any){
+
+    this.Content = {
+      "USD":parseInt(data.bpi['USD'].rate),
+      "EUR":parseInt(data.bpi['EUR'].rate),
+      "GBP":parseInt(data.bpi['GBP'].rate)
+    }
+    this.keys = Object.keys(this.Content);
   }
 }

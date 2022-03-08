@@ -8,14 +8,18 @@
     <div class = "Container">
         <div class = "Button-Container">
             <button class = "Button" (click) = "getMessage()">getMessage</button>
-            <button class = "Button" (click) = "sendMessage()">sendMessage</button>
-            <button class = "Button" (click) = "deleteMessage()">deleteMessage</button>
+            <!-- <button class = "Button" (click) = "sendMessage()">sendMessage</button>
+            <button class = "Button" (click) = "deleteMessage()">deleteMessage</button> -->
         </div>
     </div>    
 
     <div class = "Container">
-        <div class = "Response">
-            {{response}}
+        <div class = "Values" *ngFor="let v of keys ">
+            <div class = "Value">
+                <div class = "Key">{{v}}</div>
+                <div class = "Val">{{Content[v] |currency: v}}</div>
+            </div>
+           <!-- Value: {{v}} :  {{ Content[v] |currency: v}} -->
         </div>
     </div>
 

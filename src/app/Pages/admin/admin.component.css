@@ -88,10 +88,53 @@
     margin: 40px;
     margin-bottom: 40px;
 }
-
 /* 
-<div class = "Container">
-<div class = "Response">
-    {{response}}
-</div>
+<div class = "Value">
+<div class = "Key">{{v}}</div>
+<div class = "Value">{{Content[v] |currency: v}}</div>
 </div> */
+
+
+.Values{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    font-family: monospace;
+  
+}
+
+.Value{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+}
+
+.Value .Key{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    font-family: monospace;
+    font-size: 25px;
+}
+
+.Value .Val{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content:center ;
+    transition: all ease 0.3s;
+    font-family: monospace;
+    font-size: 15px;
+}
