@@ -6,6 +6,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 // import {CommonModule} from '@angular/common';
 
@@ -57,6 +60,8 @@ import { ModalTriggerDirective } from './Directives/modal-trigger.directive';
     ReactiveFormsModule,
     CommonModule,
     RouterModule.forRoot(AppRoutes),
+    ToastrModule.forRoot({preventDuplicates:true}),
+    BrowserAnimationsModule,
   ],
   providers: [
     ValidNewFormService,
