@@ -3,6 +3,7 @@
 //================================================================
 
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +16,12 @@ export class AppComponent {
   //================================================================
 
   
-  constructor() {}
+  constructor(private cookie:CookieService) {}
 
   ngOnInit(): void {
+    let date = new Date();
+    let time = date.setTime(date.getTime() + (5000));
+    this.cookie.set('loggedIn', "Still Logged In " , {expires: new Date(time)});
     //setting up the socket connection
   }
 }
