@@ -34,6 +34,8 @@ import { CollapserComponent } from './Components/collapser/collapser.component';
 import { CustomPipePipe } from './Pipes/custom-pipe.pipe';
 import { ModalComponent } from './Components/modal/modal.component';
 import { ModalTriggerDirective } from './Directives/modal-trigger.directive';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { ModalTriggerDirective } from './Directives/modal-trigger.directive';
   ],
   providers: [
     ValidNewFormService,
+    CookieService,
   ],
   bootstrap: [AppComponent]
 })
