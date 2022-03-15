@@ -1,7 +1,9 @@
-<app-title header="Admin" text = "Test Toasters"></app-title>
-<div class = "Container">
-    <button class = "btn btn-primary" (click) = "Toast(1)">Toast</button>
-    <button class = "btn btn-primary" (click) = "Toast(2)">Toast2</button>
-    <button class = "btn btn-primary" (click) = "Toast(3)">Toast3</button>
-    <button class = "btn btn-primary" (click) = "Toast(4)">Toast4</button>
+<app-title header="Admin" text="Test Toasters"></app-title>
+<div class="Container">
+    <div class="Buttons">
+        <button class="btn-primary" (click)="Toast(1)">Success</button>
+        <button class="btn-primary" (click)="Toast(2)">Error</button>
+        <button class="btn-primary" (click)="Toast(3)">Info</button>
+        <button class="btn-primary" (click)="Toast(4)">Warning</button>
+    </div>
 </div>
