@@ -18,6 +18,13 @@ export class AppComponent {
   constructor() {}
 
   ngOnInit(): void {
+    
+    let date = new Date();
+    let time  =date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+    console.log(time)
+
+    localStorage.setItem('time',time);
+
     //setting up the socket connection
   }
 }
